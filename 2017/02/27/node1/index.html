@@ -87,37 +87,34 @@
 
 
 
-<meta name="description" content="node1.服务端没有window对象，后台最大的是global对象，在文件中运行this不是global2.通过var声明，不能直接声明在global上
-###global上的属性  (全局对象，直接访问)
-
+<meta name="description" content="1.服务端没有window对象，后台最大的是global对象，在文件中运行this不是global2.通过var声明，不能直接声明在global上
+global上的属性  (全局对象，直接访问)
 process 进程对象
 nextTick 下一队列（当前队列的底部）
 process.pid 进程的ID
 process.kill()杀死进程
-process.cwd()当前工作目录（_">
+process.cwd()当前工作目录（__dirname">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node1">
+<meta property="og:title" content="基础node1">
 <meta property="og:url" content="http://yoursite.com/2017/02/27/node1/index.html">
 <meta property="og:site_name" content="web技术博客">
-<meta property="og:description" content="node1.服务端没有window对象，后台最大的是global对象，在文件中运行this不是global2.通过var声明，不能直接声明在global上
-###global上的属性  (全局对象，直接访问)
-
+<meta property="og:description" content="1.服务端没有window对象，后台最大的是global对象，在文件中运行this不是global2.通过var声明，不能直接声明在global上
+global上的属性  (全局对象，直接访问)
 process 进程对象
 nextTick 下一队列（当前队列的底部）
 process.pid 进程的ID
 process.kill()杀死进程
-process.cwd()当前工作目录（_">
-<meta property="og:updated_time" content="2017-02-27T07:55:08.673Z">
+process.cwd()当前工作目录（__dirname">
+<meta property="og:updated_time" content="2017-02-27T09:30:58.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node1">
-<meta name="twitter:description" content="node1.服务端没有window对象，后台最大的是global对象，在文件中运行this不是global2.通过var声明，不能直接声明在global上
-###global上的属性  (全局对象，直接访问)
-
+<meta name="twitter:title" content="基础node1">
+<meta name="twitter:description" content="1.服务端没有window对象，后台最大的是global对象，在文件中运行this不是global2.通过var声明，不能直接声明在global上
+global上的属性  (全局对象，直接访问)
 process 进程对象
 nextTick 下一队列（当前队列的底部）
 process.pid 进程的ID
 process.kill()杀死进程
-process.cwd()当前工作目录（_">
+process.cwd()当前工作目录（__dirname">
 
 
 
@@ -151,7 +148,7 @@ process.cwd()当前工作目录（_">
 
 
 
-  <title> node1 | web技术博客 </title>
+  <title> 基础node1 | web技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -291,7 +288,7 @@ process.cwd()当前工作目录（_">
             
             
               
-                node1
+                基础node1
               
             
           </h1>
@@ -306,7 +303,7 @@ process.cwd()当前工作目录（_">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-27T15:55:00+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-27T17:30:36+08:00">
                 2017-02-27
               </time>
             
@@ -342,9 +339,8 @@ process.cwd()当前工作目录（_">
       
 
       
-        <h2 id="node"><a href="#node" class="headerlink" title="node"></a>node</h2><p>1.服务端没有window对象，后台最大的是global对象，在文件中运行this不是global<br>2.通过var声明，不能直接声明在global上</p>
-<p>###global上的属性  (全局对象，直接访问)</p>
-<ul>
+        <p>1.服务端没有window对象，后台最大的是global对象，在文件中运行this不是global<br>2.通过var声明，不能直接声明在global上</p>
+<h2 id="global上的属性-全局对象，直接访问"><a href="#global上的属性-全局对象，直接访问" class="headerlink" title="global上的属性  (全局对象，直接访问)"></a>global上的属性  (全局对象，直接访问)</h2><ul>
 <li>process 进程对象<ul>
 <li>nextTick 下一队列（当前队列的底部）</li>
 <li>process.pid 进程的ID</li>
@@ -360,17 +356,15 @@ process.cwd()当前工作目录（_">
 <li>console<pre><code>- console.log/error/info/warn/time/timeEnd
 </code></pre></li>
 </ul>
-<p>##文件目录与文件名<br><strong>dirname(全局变量存储的是文件目录)
+<h3 id="文件目录与文件名"><a href="#文件目录与文件名" class="headerlink" title="文件目录与文件名"></a>文件目录与文件名</h3><p><strong>dirname(全局变量存储的是文件目录)
 </strong>filename（全局变量存储的是文件名）</p>
-<p>####异步</p>
-<ul>
+<h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><ul>
 <li>process.nextTick  同步代码执行后会执行的代码（第一个小本的尾部）</li>
 <li>setImmediate  异步在nextTick后执行（第二个小本）</li>
 <li>setTimeout 唯一能设置执行时间的 （第二个小本）</li>
 </ul>
 <p>顺序：同步&gt;process.nextTick&gt;setImmediate&gt;=settimeout</p>
-<p>##模块化的特点</p>
-<ul>
+<h2 id="模块化的特点"><a href="#模块化的特点" class="headerlink" title="模块化的特点"></a>模块化的特点</h2><ul>
 <li>cmd（seajs）旧近依赖  amd(requirejs)依赖前置  </li>
 <li>commonjs（node）读写文件I/o操作</li>
 <li>模块化有利于分工协作</li>
@@ -385,56 +379,61 @@ process.cwd()当前工作目录（_">
 <li>使用模块（需要用谁require谁）</li>
 <li>导出模块（exports / module.exports）</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1.module.exports=calc;</div><div class="line">2.exports.calc=calc</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">a.js:</div><div class="line">var calc=&#123;</div><div class="line">    &apos;+&apos;:function(a,b)&#123;</div><div class="line">        return a+b</div><div class="line">    &#125;,</div><div class="line">    &apos;-&apos;:function(a,b)&#123;</div><div class="line">        return a-b</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">module.exports=calc;     //导出模块方法1：</div><div class="line">exports.calc=calc;       //导出模块方法2：</div><div class="line"></div><div class="line"></div><div class="line">b.js:</div><div class="line">var jiSuan=require(&apos;./a.js&apos;).calc;       //需要使用谁就require谁</div><div class="line">console.log(jiSuan[&apos;+&apos;](1,2));           //输出计算结果</div></pre></td></tr></table></figure>
 <h2 id="文件模块"><a href="#文件模块" class="headerlink" title="文件模块"></a>文件模块</h2><ul>
 <li>引用方式要通过相对路径引用./开头</li>
 <li>引用多次 只执行一次</li>
 <li>导出模块（exports/module.exports）</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">a.js:</div><div class="line">console.log(&apos;123&apos;)</div><div class="line"></div><div class="line">b.js:</div><div class="line">require(&apos;./a.js&apos;)     //相当于将a.js文件中的代码复制过来了，会运行弹出123</div><div class="line">var abc=require(&apos;./p.js&apos;)  //相当于将a.js文件中的代码复制过来了，会运行弹出123</div></pre></td></tr></table></figure>
 <h2 id="第三方模块npm"><a href="#第三方模块npm" class="headerlink" title="第三方模块npm"></a>第三方模块npm</h2><ul>
 <li>npm是管理后台文件的 管理前端文件的是bower</li>
 <li>别人的模块 都在npm网站中</li>
 <li><p>下载文件都是通过npm</p>
 <ul>
-<li><p>全局下载-g（只在命令下使用）电脑上的项目都可以访问</p>
+<li><p>全局下载-g，电脑上的所有项目都可以访问（只在命令下使用）</p>
 <ul>
 <li><p>nrm工具（切换源-切换到国内下载东西网速快）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">npm install nrm -g    安装nrm</div><div class="line">nrm ls                查看所有源</div><div class="line">nrm test              测试源</div><div class="line"></div><div class="line">添加一个源</div><div class="line">nrm add 名字 路径                    格式：</div><div class="line">nrm add zfpx http://172.18.1.139     例子：</div><div class="line"></div><div class="line">切换源</div><div class="line">nrm use 名字   格式：</div><div class="line">nrm use zfpx   例子：</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">npm install nrm -g    安装nrm</div><div class="line">nrm ls                查看所有源</div><div class="line">nrm test              测试源的速度</div><div class="line"></div><div class="line">添加一个源</div><div class="line">nrm add 名字 路径                    格式：</div><div class="line">nrm add zfpx http://172.18.1.139     例子：</div><div class="line"></div><div class="line">切换源</div><div class="line">nrm use 名字   格式：</div><div class="line">nrm use zfpx   例子：</div></pre></td></tr></table></figure>
 </li>
-<li><p>nodeppt一个通过node秒做ppt的插件</p>
+<li><p>nodeppt基于node秒做ppt的插件</p>
 </li>
 <li>nodeppt安装npm install nodeppt -g</li>
 </ul>
 </li>
+<li><p>本地下载（在代码里使用）下载到项目中目录中，本项目可用</p>
+<ul>
+<li><p>记录安装过的所有模块：</p>
+<ul>
+<li>在项目中新建一个文件夹（英文）</li>
+<li>进入当前目录命令行进行初始化文件夹npm init -y会自动生成一个package.json文件</li>
+<li>以后每次本地安装模块的时候在末尾添加–sava或者–save-dev 把安装模块基本信息会添加到package.json这个文件中，达到了记录安装了哪些模块</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">根据不同的模块的依赖进行区分书写：</div><div class="line"></div><div class="line">1.依赖（开发上线都需要添加--save）</div><div class="line">npm install jquery --save  缩写（-S）</div><div class="line">2.只开发时依赖（添加--save-dev）</div><div class="line">npm install babel-core --save-dev 缩写（-D）</div></pre></td></tr></table></figure>
+</li>
+<li><p>卸载模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm uninstall nodeppt -g</div><div class="line">npm uninstall jquery --save</div><div class="line">npm uninstall gulp --save-dev</div></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ul>
-<pre><code>- 本地下载（在代码里使用）下载到项目中目录中，本项目可用
-    - 记录安装过的所有模块
-        - 在项目中新建一个文件夹（英文）
-        - 进入当前目录命令行进行初始化文件夹npm init -y会自动生成一个package.json文件
-        - 以后每次本地安装模块的时候在末尾添加--sava 把安装的库，包的基本信息会添加到package.json这个文件中，达到了记录安装过的代码效果
-
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">根据不同的模块的依赖进行区分书写：</div><div class="line"></div><div class="line">1.依赖（开发上线都需要添加--save）</div><div class="line">npm install jquery --save  缩写（-S）</div><div class="line">2.只开发时依赖（添加--save-dev）</div><div class="line">npm install babel-core --save-dev 缩写（-D）</div></pre></td></tr></table></figure>
-
-    - 卸载模块
-
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm uninstall nodeppt -g</div><div class="line">npm uninstall jquery --save</div><div class="line">npm uninstall gulp --save-dev</div></pre></td></tr></table></figure>
-</code></pre><h2 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h2><blockquote>
+</li>
+</ul>
+<h2 id="查看模块-插件版本"><a href="#查看模块-插件版本" class="headerlink" title="查看模块/插件版本"></a>查看模块/插件版本</h2><blockquote>
 <p>不指定版本默认安装最新版本</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm info jquery</div><div class="line">指定版本安装：</div><div class="line">npm install jquery@2.1.0</div></pre></td></tr></table></figure>
-<h2 id="第三方模块的查找"><a href="#第三方模块的查找" class="headerlink" title="第三方模块的查找"></a>第三方模块的查找</h2><p>先查找当前目录下node_modules文件，找到名字相同的文件夹，找到package.json看里面的main，运行main对应的文件，找不到会向上级查找node_modules文件，直到找到为止（根目录），找不到则报错 （如果找不到 会默认找index.js）</p>
+<h2 id="第三方模块的查找"><a href="#第三方模块的查找" class="headerlink" title="第三方模块的查找"></a>第三方模块的查找</h2><p>安装第三方模块会自动生成node_modules文件，第三方模块的查找查找当前目录下node_modules文件，找到名字相同的文件夹，找到package.json看里面的main，运行main对应的文件，找不到会向上级查找node_modules文件，直到找到为止（根目录），找不到则报错 （如果找不到 会默认找index.js）</p>
 <h2 id="bower-管理前端文件"><a href="#bower-管理前端文件" class="headerlink" title="bower (管理前端文件)"></a>bower (管理前端文件)</h2><ul>
-<li>bower的操作和npmy异曲同工</li>
+<li>bower的操作和npm异曲同工</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">npm install bower -g     安装bower</div><div class="line">bower init               初始化</div><div class="line"></div><div class="line">安装前端插件：</div><div class="line">bower install jquery --save  </div><div class="line">bower install jquery --sava-dev</div><div class="line"></div><div class="line">默认安装到bower_components文件夹下</div><div class="line">bower可以指定目录安装：</div><div class="line">1.新建文本叫.bowerrc（一个字母也不能差，不加不减）</div><div class="line">2.进入.bowerrc加入内容：</div><div class="line">&#123;&quot;directory&quot;:&quot;lib/public/js&quot;&#125;</div><div class="line"></div><div class="line">卸载前端插件</div><div class="line">bower uninstall jquery --save</div><div class="line">bower uninstall jquery --sava-dev</div></pre></td></tr></table></figure>
-<h2 id="在npm官网上发布自己的包"><a href="#在npm官网上发布自己的包" class="headerlink" title="在npm官网上发布自己的包"></a>在npm官网上发布自己的包</h2><ul>
-<li>找到带有package.json的文件夹</li>
+<h2 id="在npm官网上发布自己的包（一个包是由很多个模块（js）组成）"><a href="#在npm官网上发布自己的包（一个包是由很多个模块（js）组成）" class="headerlink" title="在npm官网上发布自己的包（一个包是由很多个模块（js）组成）"></a>在npm官网上发布自己的包（一个包是由很多个模块（js）组成）</h2><ul>
+<li>找到带有package.json的文件夹(文件初始化出现package.json)</li>
 <li>切到官方npm上</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">nrm use npm    切换</div><div class="line">nrm ls         查看所有的源 带*那个是当前源</div><div class="line">npm addUser    登录账号/没有账号直接进行注册</div><div class="line"> ...用户名，密码，邮箱...</div><div class="line">npm publish     发布自己的模块到npm官网，别人可以下载使用</div><div class="line">&gt;&gt;进入到npm官网在搜索栏中可以搜索到自己发布的版本</div><div class="line"></div><div class="line">-更新版本</div><div class="line">1.本地更改自己的模块内容之后</div><div class="line">2.在package.json文件中&quot;version&quot;中把版本号增高一点</div><div class="line">3.在命令行重新进行发布 npm publish即可</div></pre></td></tr></table></figure>
-<h2 id="核心模块-内置模块"><a href="#核心模块-内置模块" class="headerlink" title="核心模块/内置模块"></a>核心模块/内置模块</h2><p>-node 自带的模块，不需要安装可以直接使用的模块</p>
+<h2 id="node核心模块-内置模块"><a href="#node核心模块-内置模块" class="headerlink" title="node核心模块/内置模块"></a>node核心模块/内置模块</h2><p>-node 自带的模块，不需要安装可以直接使用的模块</p>
 <ul>
 <li>例如：util(工具模块)</li>
 </ul>
@@ -556,7 +555,7 @@ process.cwd()当前工作目录（_">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -595,7 +594,7 @@ process.cwd()当前工作目录（_">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#node"><span class="nav-number">1.</span> <span class="nav-text">node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现模块化"><span class="nav-number">2.</span> <span class="nav-text">如何实现模块化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件模块"><span class="nav-number">3.</span> <span class="nav-text">文件模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方模块npm"><span class="nav-number">4.</span> <span class="nav-text">第三方模块npm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看版本"><span class="nav-number">5.</span> <span class="nav-text">查看版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方模块的查找"><span class="nav-number">6.</span> <span class="nav-text">第三方模块的查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bower-管理前端文件"><span class="nav-number">7.</span> <span class="nav-text">bower (管理前端文件)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在npm官网上发布自己的包"><span class="nav-number">8.</span> <span class="nav-text">在npm官网上发布自己的包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心模块-内置模块"><span class="nav-number">9.</span> <span class="nav-text">核心模块/内置模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建博客"><span class="nav-number">10.</span> <span class="nav-text">搭建博客</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#global上的属性-全局对象，直接访问"><span class="nav-number">1.</span> <span class="nav-text">global上的属性  (全局对象，直接访问)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件目录与文件名"><span class="nav-number">1.1.</span> <span class="nav-text">文件目录与文件名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步"><span class="nav-number">1.2.</span> <span class="nav-text">异步</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化的特点"><span class="nav-number">2.</span> <span class="nav-text">模块化的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现模块化"><span class="nav-number">3.</span> <span class="nav-text">如何实现模块化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件模块"><span class="nav-number">4.</span> <span class="nav-text">文件模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方模块npm"><span class="nav-number">5.</span> <span class="nav-text">第三方模块npm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看模块-插件版本"><span class="nav-number">6.</span> <span class="nav-text">查看模块/插件版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方模块的查找"><span class="nav-number">7.</span> <span class="nav-text">第三方模块的查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bower-管理前端文件"><span class="nav-number">8.</span> <span class="nav-text">bower (管理前端文件)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在npm官网上发布自己的包（一个包是由很多个模块（js）组成）"><span class="nav-number">9.</span> <span class="nav-text">在npm官网上发布自己的包（一个包是由很多个模块（js）组成）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node核心模块-内置模块"><span class="nav-number">10.</span> <span class="nav-text">node核心模块/内置模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建博客"><span class="nav-number">11.</span> <span class="nav-text">搭建博客</span></a></li></ol></div>
             
 
           </div>
