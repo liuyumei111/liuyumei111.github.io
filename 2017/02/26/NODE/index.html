@@ -88,36 +88,33 @@
 
 
 <meta name="description" content="node1.服务端没有window对象，后台最大的是global对象，在文件中运行this不是global2.通过var声明，不能直接声明在global上
-###global上的属性  (全局对象，直接访问)
-
+global上的属性  (全局对象，直接访问)
 process 进程对象
 nextTick 下一队列（当前队列的底部）
 process.pid 进程的ID
 process.kill()杀死进程
-process.cwd()当前工作目录（_">
+process.cwd()当前工作目录（__dir">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基础node">
 <meta property="og:url" content="http://yoursite.com/2017/02/26/node/index.html">
 <meta property="og:site_name" content="web技术博客">
 <meta property="og:description" content="node1.服务端没有window对象，后台最大的是global对象，在文件中运行this不是global2.通过var声明，不能直接声明在global上
-###global上的属性  (全局对象，直接访问)
-
+global上的属性  (全局对象，直接访问)
 process 进程对象
 nextTick 下一队列（当前队列的底部）
 process.pid 进程的ID
 process.kill()杀死进程
-process.cwd()当前工作目录（_">
-<meta property="og:updated_time" content="2017-02-27T08:00:51.079Z">
+process.cwd()当前工作目录（__dir">
+<meta property="og:updated_time" content="2017-02-27T08:03:03.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础node">
 <meta name="twitter:description" content="node1.服务端没有window对象，后台最大的是global对象，在文件中运行this不是global2.通过var声明，不能直接声明在global上
-###global上的属性  (全局对象，直接访问)
-
+global上的属性  (全局对象，直接访问)
 process 进程对象
 nextTick 下一队列（当前队列的底部）
 process.pid 进程的ID
 process.kill()杀死进程
-process.cwd()当前工作目录（_">
+process.cwd()当前工作目录（__dir">
 
 
 
@@ -343,8 +340,7 @@ process.cwd()当前工作目录（_">
 
       
         <h2 id="node"><a href="#node" class="headerlink" title="node"></a>node</h2><p>1.服务端没有window对象，后台最大的是global对象，在文件中运行this不是global<br>2.通过var声明，不能直接声明在global上</p>
-<p>###global上的属性  (全局对象，直接访问)</p>
-<ul>
+<h3 id="global上的属性-全局对象，直接访问"><a href="#global上的属性-全局对象，直接访问" class="headerlink" title="global上的属性  (全局对象，直接访问)"></a>global上的属性  (全局对象，直接访问)</h3><ul>
 <li>process 进程对象<ul>
 <li>nextTick 下一队列（当前队列的底部）</li>
 <li>process.pid 进程的ID</li>
@@ -360,17 +356,15 @@ process.cwd()当前工作目录（_">
 <li>console<pre><code>- console.log/error/info/warn/time/timeEnd
 </code></pre></li>
 </ul>
-<p>##文件目录与文件名<br><strong>dirname(全局变量存储的是文件目录)
+<h2 id="文件目录与文件名"><a href="#文件目录与文件名" class="headerlink" title="文件目录与文件名"></a>文件目录与文件名</h2><p><strong>dirname(全局变量存储的是文件目录)
 </strong>filename（全局变量存储的是文件名）</p>
-<p>####异步</p>
-<ul>
+<h4 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h4><ul>
 <li>process.nextTick  同步代码执行后会执行的代码（第一个小本的尾部）</li>
 <li>setImmediate  异步在nextTick后执行（第二个小本）</li>
 <li>setTimeout 唯一能设置执行时间的 （第二个小本）</li>
 </ul>
 <p>顺序：同步&gt;process.nextTick&gt;setImmediate&gt;=settimeout</p>
-<p>##模块化的特点</p>
-<ul>
+<h2 id="模块化的特点"><a href="#模块化的特点" class="headerlink" title="模块化的特点"></a>模块化的特点</h2><ul>
 <li>cmd（seajs）旧近依赖  amd(requirejs)依赖前置  </li>
 <li>commonjs（node）读写文件I/o操作</li>
 <li>模块化有利于分工协作</li>
@@ -595,7 +589,7 @@ process.cwd()当前工作目录（_">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#node"><span class="nav-number">1.</span> <span class="nav-text">node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现模块化"><span class="nav-number">2.</span> <span class="nav-text">如何实现模块化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件模块"><span class="nav-number">3.</span> <span class="nav-text">文件模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方模块npm"><span class="nav-number">4.</span> <span class="nav-text">第三方模块npm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看版本"><span class="nav-number">5.</span> <span class="nav-text">查看版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方模块的查找"><span class="nav-number">6.</span> <span class="nav-text">第三方模块的查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bower-管理前端文件"><span class="nav-number">7.</span> <span class="nav-text">bower (管理前端文件)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在npm官网上发布自己的包"><span class="nav-number">8.</span> <span class="nav-text">在npm官网上发布自己的包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心模块-内置模块"><span class="nav-number">9.</span> <span class="nav-text">核心模块/内置模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建博客"><span class="nav-number">10.</span> <span class="nav-text">搭建博客</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#node"><span class="nav-number">1.</span> <span class="nav-text">node</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#global上的属性-全局对象，直接访问"><span class="nav-number">1.1.</span> <span class="nav-text">global上的属性  (全局对象，直接访问)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件目录与文件名"><span class="nav-number">2.</span> <span class="nav-text">文件目录与文件名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#异步"><span class="nav-number">2.0.1.</span> <span class="nav-text">异步</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化的特点"><span class="nav-number">3.</span> <span class="nav-text">模块化的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现模块化"><span class="nav-number">4.</span> <span class="nav-text">如何实现模块化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件模块"><span class="nav-number">5.</span> <span class="nav-text">文件模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方模块npm"><span class="nav-number">6.</span> <span class="nav-text">第三方模块npm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看版本"><span class="nav-number">7.</span> <span class="nav-text">查看版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方模块的查找"><span class="nav-number">8.</span> <span class="nav-text">第三方模块的查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bower-管理前端文件"><span class="nav-number">9.</span> <span class="nav-text">bower (管理前端文件)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在npm官网上发布自己的包"><span class="nav-number">10.</span> <span class="nav-text">在npm官网上发布自己的包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心模块-内置模块"><span class="nav-number">11.</span> <span class="nav-text">核心模块/内置模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建博客"><span class="nav-number">12.</span> <span class="nav-text">搭建博客</span></a></li></ol></div>
             
 
           </div>

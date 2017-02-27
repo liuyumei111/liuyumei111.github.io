@@ -445,8 +445,7 @@
         
           
             <h2 id="node"><a href="#node" class="headerlink" title="node"></a>node</h2><p>1.服务端没有window对象，后台最大的是global对象，在文件中运行this不是global<br>2.通过var声明，不能直接声明在global上</p>
-<p>###global上的属性  (全局对象，直接访问)</p>
-<ul>
+<h3 id="global上的属性-全局对象，直接访问"><a href="#global上的属性-全局对象，直接访问" class="headerlink" title="global上的属性  (全局对象，直接访问)"></a>global上的属性  (全局对象，直接访问)</h3><ul>
 <li>process 进程对象<ul>
 <li>nextTick 下一队列（当前队列的底部）</li>
 <li>process.pid 进程的ID</li>
@@ -462,17 +461,15 @@
 <li>console<pre><code>- console.log/error/info/warn/time/timeEnd
 </code></pre></li>
 </ul>
-<p>##文件目录与文件名<br><strong>dirname(全局变量存储的是文件目录)
+<h2 id="文件目录与文件名"><a href="#文件目录与文件名" class="headerlink" title="文件目录与文件名"></a>文件目录与文件名</h2><p><strong>dirname(全局变量存储的是文件目录)
 </strong>filename（全局变量存储的是文件名）</p>
-<p>####异步</p>
-<ul>
+<h4 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h4><ul>
 <li>process.nextTick  同步代码执行后会执行的代码（第一个小本的尾部）</li>
 <li>setImmediate  异步在nextTick后执行（第二个小本）</li>
 <li>setTimeout 唯一能设置执行时间的 （第二个小本）</li>
 </ul>
 <p>顺序：同步&gt;process.nextTick&gt;setImmediate&gt;=settimeout</p>
-<p>##模块化的特点</p>
-<ul>
+<h2 id="模块化的特点"><a href="#模块化的特点" class="headerlink" title="模块化的特点"></a>模块化的特点</h2><ul>
 <li>cmd（seajs）旧近依赖  amd(requirejs)依赖前置  </li>
 <li>commonjs（node）读写文件I/o操作</li>
 <li>模块化有利于分工协作</li>
