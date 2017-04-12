@@ -1,0 +1,728 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="call,apply,bind," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content=".jpg)
+今天看博客时，看到了这样的一段js代码：
+1var bind = Function.prototype.call.bind(Function.prototype.bind);
+我想突然看到这样的一段代码，即使js能力再强的人，可能也需要花点时间去理解。像我这样的菜鸟就更不用说了。其实，原文已经对这端代码做出了解释，但我还是想用我的想法去解释这段代码。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js中call、apply、bind的用法">
+<meta property="og:url" content="http://yoursite.com/2016/09/20/js中call、apply、bind的用法/index.html">
+<meta property="og:site_name" content="web技术博客">
+<meta property="og:description" content=".jpg)
+今天看博客时，看到了这样的一段js代码：
+1var bind = Function.prototype.call.bind(Function.prototype.bind);
+我想突然看到这样的一段代码，即使js能力再强的人，可能也需要花点时间去理解。像我这样的菜鸟就更不用说了。其实，原文已经对这端代码做出了解释，但我还是想用我的想法去解释这段代码。">
+<meta property="og:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(32">
+<meta property="og:updated_time" content="2017-03-28T07:36:45.232Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js中call、apply、bind的用法">
+<meta name="twitter:description" content=".jpg)
+今天看博客时，看到了这样的一段js代码：
+1var bind = Function.prototype.call.bind(Function.prototype.bind);
+我想突然看到这样的一段代码，即使js能力再强的人，可能也需要花点时间去理解。像我这样的菜鸟就更不用说了。其实，原文已经对这端代码做出了解释，但我还是想用我的想法去解释这段代码。">
+<meta name="twitter:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(32">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/20/js中call、apply、bind的用法/"/>
+
+
+
+
+
+  <title> js中call、apply、bind的用法 | web技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">web技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/20/js中call、apply、bind的用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="柳玉美">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="web技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                js中call、apply、bind的用法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-20T18:45:27+08:00">
+                2016-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://github.com/yutaiwei/blog/blob/master/photo/1%20(32" alt="">.jpg)</p>
+<p>今天看博客时，看到了这样的一段js代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var bind = Function.prototype.call.bind(Function.prototype.bind);</div></pre></td></tr></table></figure>
+<p>我想突然看到这样的一段代码，即使js能力再强的人，可能也需要花点时间去理解。像我这样的菜鸟就更不用说了。其实，原文已经对这端代码做出了解释，但我还是想用我的想法去解释这段代码。</p>
+<a id="more"></a>
+<p>上面那段代码涉及到了<code>call</code>、<code>bind</code>，所以我想先区别一下<code>call</code>、<code>apply</code>、<code>bind</code>的用法。这三个方法的用法非常相似，将函数绑定到上下文中，即用来改变函数中<code>this</code>的指向。举个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var zlw = &#123;</div><div class="line">    name: &quot;zlw&quot;,</div><div class="line">    sayHello: function (age) &#123;</div><div class="line">         console.log(&quot;hello, i am &quot;, this.name + &quot; &quot; + age &quot; years old&quot;);</div><div class="line">     &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var  xlj = &#123;</div><div class="line">    name: &quot;xlj&quot;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">zlw.sayHello(24);// hello, i am zlw 24 years old</div></pre></td></tr></table></figure>
+<p>下面看看<code>call</code>、<code>apply</code>方法的用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">zlw.sayHello.call(xlj, 24);// hello, i am xlj 24 years old</div><div class="line">zlw.sayHello.apply(xlj, [24]);// hello, i am xlj 24 years old</div></pre></td></tr></table></figure>
+<p>结果都相同。从写法上我们就能看出二者之间的异同。相同之处在于，第一个参数都是要绑定的上下文，后面的参数是要传递给调用该方法的函数的。不同之处在于，<code>call</code>方法传递给调用函数的参数是逐个列出的，而<code>apply</code>则是要写在数组中。</p>
+<p>我们再来看看<code>bind</code>方法的用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">zlw.sayHello.bind(xlj, 24)(); //hello, i am xlj 24 years old</div><div class="line">zlw.sayHello.bind(xlj, [24])(); //hello, i am xlj 24 years old</div></pre></td></tr></table></figure>
+<p><code>bind</code>方法传递给调用函数的参数可以逐个列出，也可以写在数组中。<code>bind</code>方法与<code>call</code>、<code>apply</code>最大的不同就是前者返回一个绑定上下文的函数，而后两者是直接执行了函数。由于这个原因，上面的代码也可以这样写:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">zlw.sayHello.bind(xlj)(24); //hello, i am xlj 24 years old</div><div class="line">zlw.sayHello.bind(xlj)([24]); //hello, i am xlj 24 years old</div></pre></td></tr></table></figure>
+<p><code>bind</code>方法还可以这样写<code>fn.bind(obj, arg1)(arg2)</code>。</p>
+<p>用一句话总结<code>bind</code>的用法：该方法创建一个新函数，称为绑定函数，绑定函数会以创建它时传入<code>bind</code>方法的第一个参数作为<code>this</code>，传入bind方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数。</p>
+<p>现在回到开始的那段代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var bind = Function.prototype.call.bind(Function.prototype.bind);</div></pre></td></tr></table></figure>
+<p>我们可以这样理解这段代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var bind = fn.bind(obj)</div></pre></td></tr></table></figure>
+<p><code>fn</code>相当于<code>Function.prototype.call</code>，<code>obj</code>相当于<code>Function.prototype.bind</code>。而<code>fn.bind(obj)</code>一般可以写成这样<code>obj.fn</code>，为什么呢？因为<code>fn</code>绑定了<code>obj</code>，<code>fn</code>中的<code>this</code>就指向了<code>obj</code>。我们知道，函数中<code>this</code>的指向一般是指向调用该函数的对象。所以那段代码可以写成这样:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var bind = Function.prototype.bind.call;</div></pre></td></tr></table></figure>
+<p>大家想一想<code>Function.prototype.call.bind(Function.prototype.bind)</code>返回的是什么？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(Function.prototype.call.bind(Function.prototype.bind)) // call()</div></pre></td></tr></table></figure>
+<p>返回的是<code>call</code>函数，但这个<code>call</code>函数中的上下文的指向是<code>Function.prototype.bind</code>。这个<code>call</code>函数可以这样用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var bind = Function.prototype.call.bind(Function.prototype.bind);</div><div class="line"></div><div class="line">var zlw = &#123;</div><div class="line">    name: &quot;zlw&quot;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function hello () &#123;</div><div class="line">    console.log(&quot;hello, I am &quot;, this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">bind(hello, zlw)() // hello, I am zlw</div></pre></td></tr></table></figure>
+<p>大家可能会感到疑惑，为什么是这样写<code>bind(hello, zlw)</code>而不是这样写<code>bind(zlw, hello)</code>？既然<code>Function.prototype.call.bind(Function.prototype.bind)</code>相当于<code>Function.prototype.bind.call</code>，那么先来看下<code>Function.prototype.bind.call</code>怎么用。<code>call</code>的用法大家都知道：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Function.prototype.bind.call(obj, arg)</div></pre></td></tr></table></figure>
+<p>其实就相当于<code>obj.bind(arg)</code>。我们需要的是<code>hello</code>函数绑定对象<code>zlw</code>，即<code>hello.bind(zlw)</code>也就是<code>Function.prototype.bind.call(hello, zlw)</code>，所以应该这样写<code>bind(hello, zlw)</code>。</p>
+<p>现在又有一个疑问，既然<code>Function.prototype.call.bind(Function.prototype.bind)</code>相当于<code>Function.prototype.bind.call</code>，我们为什么要这么写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var bind = Function.prototype.call.bind(Function.prototype.bind);</div></pre></td></tr></table></figure>
+<p>而不直接这样写呢：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var bind = Function.prototype.bind.call;</div></pre></td></tr></table></figure>
+<p>先来看一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var name = &quot;xlj&quot;;</div><div class="line">var zlw = &#123;</div><div class="line">    name: &quot;zlw&quot;</div><div class="line">    hello: function () &#123;</div><div class="line">        console.log(this.name);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">zlw.hello(); // zlw</div><div class="line"></div><div class="line">var hello = zlw.hello;</div><div class="line">hello(); // xlj</div></pre></td></tr></table></figure>
+<p>有些人可能会意外，<code>hello()</code>的结果应该是<code>zlw</code>才对啊。其实，将<code>zlw.hello</code>赋值给变量<code>hello</code>，再调用<code>hello()</code>，<code>hello</code>函数中的<code>this</code>已经指向了<code>window</code>，与<code>zlw.hello</code>不再是同一个上下文，而全局变量<code>name</code>是<code>window</code>的一个属性，所以结果就是<code>xlj</code>。再看下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var hello = zlw.hello.bind(zlw);</div><div class="line">hello(); // zlw</div></pre></td></tr></table></figure>
+<p>结果是<code>zlw</code>，这时<code>hello</code>函数与<code>zlw.hello</code>是同一个上下文。其实上面的疑惑已经解开了，直接这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var bind = Function.prototype.bind.call;</div></pre></td></tr></table></figure>
+<p><code>bind</code>函数中的上下文已经与<code>Function.prototype.bind.call</code>中的不一样了，所以使用<code>bind</code>函数会出错。而这样写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var bind = Function.prototype.call.bind(Function.prototype.bind);</div></pre></td></tr></table></figure>
+<p><code>bind</code>函数中的上下文与<code>Function.prototype.call.bind(Function.prototype.bind)</code>中是一样的。</p>
+<p>关于这个这段代码的解释这到这边了，感觉语言组织能力不是很好，文章写得有些啰嗦了。文中可能会有错误，希望大家指正。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/call/" rel="tag"># call</a>
+          
+            <a href="/tags/apply/" rel="tag"># apply</a>
+          
+            <a href="/tags/bind/" rel="tag"># bind</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/20/Javascript学习笔记——基础篇/" rel="next" title="Javascript学习笔记——基础篇">
+                <i class="fa fa-chevron-left"></i> Javascript学习笔记——基础篇
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/20/Javascript学习笔记——实践篇/" rel="prev" title="Javascript学习笔记——实践篇">
+                Javascript学习笔记——实践篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="柳玉美" />
+          <p class="site-author-name" itemprop="name">柳玉美</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柳玉美</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

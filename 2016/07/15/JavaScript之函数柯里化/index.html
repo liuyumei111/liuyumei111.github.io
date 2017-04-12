@@ -1,0 +1,778 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="科里化,curry,currying," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content=".jpg)
+什么是柯里化(currying)？维基百科中的解释是：柯里化是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。意思就是当函数被调用时，返回的函数还需要设置一些传入的参数。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript之函数科里化">
+<meta property="og:url" content="http://yoursite.com/2016/07/15/JavaScript之函数柯里化/index.html">
+<meta property="og:site_name" content="web技术博客">
+<meta property="og:description" content=".jpg)
+什么是柯里化(currying)？维基百科中的解释是：柯里化是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。意思就是当函数被调用时，返回的函数还需要设置一些传入的参数。">
+<meta property="og:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(15">
+<meta property="og:updated_time" content="2017-03-28T07:12:07.038Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript之函数科里化">
+<meta name="twitter:description" content=".jpg)
+什么是柯里化(currying)？维基百科中的解释是：柯里化是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。意思就是当函数被调用时，返回的函数还需要设置一些传入的参数。">
+<meta name="twitter:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(15">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/15/JavaScript之函数柯里化/"/>
+
+
+
+
+
+  <title> JavaScript之函数科里化 | web技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">web技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/15/JavaScript之函数柯里化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="柳玉美">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="web技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript之函数科里化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-15T08:00:00+08:00">
+                2016-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://github.com/yutaiwei/blog/blob/master/photo/1%20(15" alt="">.jpg)</p>
+<h3 id="什么是柯里化-currying-？"><a href="#什么是柯里化-currying-？" class="headerlink" title="什么是柯里化(currying)？"></a>什么是柯里化(currying)？</h3><p>维基百科中的解释是：柯里化是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。意思就是当函数被调用时，返回的函数还需要设置一些传入的参数。<br><a id="more"></a><br>首先来看一个简单的例子，有下面一个函数：</p>
+<pre><code>function add(num1, num2) {
+  return num1 + num2;
+}
+</code></pre><p>我们把它改写成下面这样：</p>
+<pre><code>var fn = function(a) {
+  return function (b) {
+    return a + b;
+  }
+}
+</code></pre><p>可以这样调用函数：fn(2)(3)。上面使用了匿名函数来实现多参数函数的方法，虽然这并不是柯里化的函数，但可以帮助我们理解柯里化的含义。</p>
+<p>###实现通用柯里化函数###<br>我们可以在内置构造函数Function()的原型上来添加一个柯里化函数，这样所有的函数都可以调用。下面是通用柯里化函数的实现：</p>
+<pre><code>Function.prototype.currying = function () {
+  var that = this;
+  var args = [].slice.call(arguments);
+  return function () {
+    return that.apply(null, args.concat([].slice.call(arguments)));
+  }
+}
+</code></pre><p>现在用柯里化函数将上面的<code>add</code>函数柯里化：</p>
+<pre><code>var curriedAdd = add.currying(2);
+curriedAdd(3); // 5
+</code></pre><p>也可以一次性传入两个参数：</p>
+<pre><code>var curriedAdd = add.currying(2， 3);
+curriedAdd(); // 5
+</code></pre><p>我们知道在原生对象的原型上扩展方法是不太好的，因为可能会导致命名冲突。所以最好不要把currying函数扩展在Function的原型上，下面是改写的currying函数：</p>
+<pre><code>function currying(fn) {
+  var args = [].slice.call(arguments, 1);
+  return function () {
+    return that.apply(null, args.concat([].slice.call(arguments)));
+  }
+}
+</code></pre><p>改写之后<code>currying</code>函数的第一个参数是要被柯里化的函数，可以这样调用：</p>
+<pre><code>var curriedAdd = currying(add, 2);
+curriedAdd(3); // 5
+或
+var curriedAdd = currying(add, 2， 3);
+curriedAdd(); // 5
+</code></pre><p>上面的<code>add</code>函数只是两个数字的相加，如果我们需要n个数字相加，上面的currying函数已经不能满足要求了，下面是修改后的currying函数：</p>
+<pre><code>function currying(fn) {
+  var argsArr = [];
+  return function () {
+    if (arguments.length === 0) {
+      return fn.apply(null, argsArr);
+    } else {
+      [].push.apply(argsArr, arguments);
+    }
+  }
+}
+</code></pre><p>多个数字相加：</p>
+<pre><code>var add = function () {
+  var num = 0;
+  [].forEach.call(arguments, function (item, i) {
+    num += item;
+  })
+  return num;    
+}
+
+var curriedAdd = currying(add);
+curriedAdd(2);
+curriedAdd(3);
+curriedAdd(4);
+curriedAdd(5);
+curriedAdd();
+</code></pre><p>这样做有什么好处呢？假如说我们只想知道这个月花了多少钱，而中间的某一天之前花了多少我们并不想知道，我们只在乎结果，不在乎过程，上面的currying函数很好地解决了这个问题。有的人说这样做可以节省性能，我倒觉得这和性能没多大关系，或者说这样做的目的并不是为了性能，因为每次计算结果和最后一起计算结果是一样的，都是要计算一样的次数。还有一个好处就是可以复用currying函数，比如我们要多个数字相乘或者其他操作，都可以用currying函数，处理数字只需修改<code>fn</code>参数就可以。</p>
+<p>说到柯里化就不得不说<code>Function.prototype.bind</code>这个方法了，它也实现了函数的柯里化。我们可以自己来实现一个<code>bind</code>函数：</p>
+<pre><code>function bind（fn, context） {
+  var args = [].slice.call(arguments, 2);
+  return function () {
+    return fn.apply(context, args.concat([].slice.call(arguments)));
+  }
+}
+</code></pre><p>假如我们需要改变fn中的this上下文，就可以用bind函数，否则可以用currying函数。    </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/科里化/" rel="tag"># 科里化</a>
+          
+            <a href="/tags/curry/" rel="tag"># curry</a>
+          
+            <a href="/tags/currying/" rel="tag"># currying</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/10/input绑定回车事件/" rel="next" title="input绑定回车事件">
+                <i class="fa fa-chevron-left"></i> input绑定回车事件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/15/JavaScript正则表达式/" rel="prev" title="JavaScript正则表达式">
+                JavaScript正则表达式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="柳玉美" />
+          <p class="site-author-name" itemprop="name">柳玉美</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是柯里化-currying-？"><span class="nav-number">1.</span> <span class="nav-text">什么是柯里化(currying)？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柳玉美</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

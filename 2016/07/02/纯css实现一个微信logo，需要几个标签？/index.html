@@ -1,0 +1,704 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS3,微信Logo," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="纯CSS实现一个微信logo并不难，难的是怎样用最少的html标签实现。我一直在想怎样用一个标签就能实现，最后还是没想出来，就只好用两个标签了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="纯CSS实现一个微信logo，需要几个标签？">
+<meta property="og:url" content="http://yoursite.com/2016/07/02/纯css实现一个微信logo，需要几个标签？/index.html">
+<meta property="og:site_name" content="web技术博客">
+<meta property="og:description" content="纯CSS实现一个微信logo并不难，难的是怎样用最少的html标签实现。我一直在想怎样用一个标签就能实现，最后还是没想出来，就只好用两个标签了。">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/QQ图片20160204131450.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/QQ图片20160204200254.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/QQ图片20160204201338.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/QQ图片20160204131450.png">
+<meta property="og:updated_time" content="2017-03-28T07:05:05.833Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="纯CSS实现一个微信logo，需要几个标签？">
+<meta name="twitter:description" content="纯CSS实现一个微信logo并不难，难的是怎样用最少的html标签实现。我一直在想怎样用一个标签就能实现，最后还是没想出来，就只好用两个标签了。">
+<meta name="twitter:image" content="http://yoursite.com/assets/blogImg/QQ图片20160204131450.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/02/纯css实现一个微信logo，需要几个标签？/"/>
+
+
+
+
+
+  <title> 纯CSS实现一个微信logo，需要几个标签？ | web技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">web技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/02/纯css实现一个微信logo，需要几个标签？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="柳玉美">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="web技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                纯CSS实现一个微信logo，需要几个标签？
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-02T11:13:24+08:00">
+                2016-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS3/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS3</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/assets/blogImg/QQ图片20160204131450.png" alt=""></p>
+<p>纯CSS实现一个微信logo并不难，难的是怎样用最少的<code>html</code>标签实现。我一直在想怎样用一个标签就能实现，最后还是没想出来，就只好用两个标签了。<br><a id="more"></a></p>
+<p>首先需要两个标签元素：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;bg&quot;&gt;</div><div class="line">    &lt;div class=&quot;inner&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>先画个背景：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.bg &#123;</div><div class="line">    width: 300px;</div><div class="line">    height: 300px;</div><div class="line">    background-color: #08c406;</div><div class="line">    border-radius: 10px;</div><div class="line">    position: relative;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>再画个大的椭圆：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.inner &#123;</div><div class="line">    width: 180px;</div><div class="line">    height: 150px;</div><div class="line">    border-radius: 50%;</div><div class="line">    background-color: #fff;</div><div class="line">    position: absolute;</div><div class="line">    top: 60px;</div><div class="line">    left: 35px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>小的椭圆利用<code>.inner</code>的<code>::before</code>伪元素实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&amp;::before &#123;</div><div class="line">    content: &quot;&quot;;</div><div class="line">    width: 140px;</div><div class="line">    height: 120px;</div><div class="line">    border-radius: 50%;</div><div class="line">    background-color: #fff;</div><div class="line">    position: absolute;</div><div class="line">    top: 60px;</div><div class="line">    left: 90px;</div><div class="line">    border: 2px solid #08c406;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>下图时现在的结果：</p>
+<p><img src="/assets/blogImg/QQ图片20160204200254.png" alt=""></p>
+<p>里面的四个圆怎么画呢？可以利用CSS3的<code>box-shadow</code>属性实现，一般重复性的东西都会用这个属性，因为它可以制造出无数个一模一样的东西出来。</p>
+<p>利用<code>.bg</code>的<code>::before</code>伪元素实现这些圆：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&amp;::before &#123;</div><div class="line">   content: &quot;&quot;;</div><div class="line">   position: absolute;</div><div class="line">   width: 16px;</div><div class="line">   height: 16px;</div><div class="line">   border-radius: 50%;</div><div class="line">   background-color: #08c406;</div><div class="line">   top: 150px;</div><div class="line">   left: 155px;</div><div class="line">   z-index: 2;</div><div class="line">   box-shadow: 70px 0 #08c406, -70px -50px 0 2px #08c406, 0 -50px 0 2px #08c406;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>::before</code>本身会实现一个圆(一个小圆),然后利用<code>box-shadow</code>属性实现其它的三个圆。</p>
+<p>来看看现在的效果：</p>
+<p><img src="/assets/blogImg/QQ图片20160204201338.png" alt=""></p>
+<p>现在就剩下两个角了，想想还有哪些东西没用上？还有两个伪元素，分别是<code>.bg</code>的<code>::after</code>和<code>.inner</code>的<code>::after</code>，刚好可以实现两个角。</p>
+<p>这两个角其实就是平常的小三角，然后再旋转个<code>45</code>度，<code>CSS</code>实现小三角太常见了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">.bg::after &#123;</div><div class="line">    content: &quot;&quot;;</div><div class="line">    border-width: 30px 12px;</div><div class="line">    border-style: solid;</div><div class="line">    border-color: #fff transparent transparent transparent;</div><div class="line">    position: absolute;</div><div class="line">    top: 182px;</div><div class="line">    left: 50px;</div><div class="line">    transform: rotate(45deg);</div><div class="line">&#125;</div><div class="line"></div><div class="line">.inner::after &#123;</div><div class="line">    content: &quot;&quot;;</div><div class="line">    border-width: 30px 10px;</div><div class="line">    border-style: solid;</div><div class="line">    border-color: #fff transparent transparent transparent;</div><div class="line">    position: absolute;</div><div class="line">    top: 155px;</div><div class="line">    left: 200px;</div><div class="line">    transform: rotate(-45deg);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最终效果：</p>
+<p><img src="/assets/blogImg/QQ图片20160204131450.png" alt=""></p>
+<p>全部<code>css</code>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">@mixin pos($left, $top) &#123;</div><div class="line">  position: absolute;</div><div class="line">  left: $left;</div><div class="line">  top: $top;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.bg &#123;</div><div class="line">  width: 300px;</div><div class="line">  height: 300px;</div><div class="line">  background-color: #08c406;</div><div class="line">  border-radius: 10px;</div><div class="line">  position: relative;</div><div class="line"></div><div class="line">  &amp;::before &#123;</div><div class="line">   @include pos(155px, 150px);</div><div class="line">   content: &quot;&quot;;</div><div class="line">   width: 16px;</div><div class="line">   height: 16px;</div><div class="line">   border-radius: 50%;</div><div class="line">   background-color: #08c406;</div><div class="line">   z-index: 2;</div><div class="line">   box-shadow: 70px 0 #08c406, -70px -50px 0 2px #08c406, 0 -50px 0 2px #08c406;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  &amp;::after &#123;</div><div class="line">   @include pos(50px, 182px);</div><div class="line">   content: &quot;&quot;;</div><div class="line">   border-width: 30px 12px;</div><div class="line">   border-style: solid;</div><div class="line">   border-color: #fff transparent transparent transparent;</div><div class="line">   transform: rotate(45deg);</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> .inner &#123;</div><div class="line">   width: 180px;</div><div class="line">   height: 150px;</div><div class="line">   border-radius: 50%;</div><div class="line">   background-color: #fff;</div><div class="line">   @include pos(35px, 60px);</div><div class="line"></div><div class="line">   &amp;::before &#123;</div><div class="line">    @include pos(90px, 60px);</div><div class="line">    content: &quot;&quot;;</div><div class="line">    width: 140px;</div><div class="line">    height: 120px;</div><div class="line">    border-radius: 50%;</div><div class="line">    background-color: #fff;</div><div class="line">    border: 2px solid #08c406;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   &amp;::after &#123;</div><div class="line">    @include pos(200px, 155px);</div><div class="line">    content: &quot;&quot;;</div><div class="line">    border-width: 30px 10px;</div><div class="line">    border-style: solid;</div><div class="line">    border-color: #fff transparent transparent transparent;</div><div class="line">    transform: rotate(-45deg);</div><div class="line">   &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>画这个logo最难的地方应该就是实现四个小圆的时候，因为<code>CSS3</code>不太熟的人可能不会想到利用<code>box-shadow</code>去实现。</p>
+<p>大家还有其它的方法实现微信logo吗？有没有一个标签就能实现的？欢迎留下你的实现方式。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS3/" rel="tag"># CSS3</a>
+          
+            <a href="/tags/微信Logo/" rel="tag"># 微信Logo</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/29/HTML5和CSS3学习资料/" rel="next" title="HTML5和CSS3学习资料">
+                <i class="fa fa-chevron-left"></i> HTML5和CSS3学习资料
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/04/仿淘宝图片放大器/" rel="prev" title="仿淘宝图片放大器">
+                仿淘宝图片放大器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="柳玉美" />
+          <p class="site-author-name" itemprop="name">柳玉美</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柳玉美</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

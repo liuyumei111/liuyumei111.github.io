@@ -1,0 +1,788 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS3,实例," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content=".jpg)
+自CSS3流行以来，虽然以前看过一遍所有的新增属性，但其实在实际项目中用到的少之又少。所以没有形成系统性的认识，以及看到效果立马就能想到解决方案的能力。然后最近正好遇到一个需要绘制大量动画的需求，所以决定趁此机会好好研究一下这个既熟悉又陌生的css3。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3之初体验01">
+<meta property="og:url" content="http://yoursite.com/2016/06/21/CSS3之初体验/index.html">
+<meta property="og:site_name" content="web技术博客">
+<meta property="og:description" content=".jpg)
+自CSS3流行以来，虽然以前看过一遍所有的新增属性，但其实在实际项目中用到的少之又少。所以没有形成系统性的认识，以及看到效果立马就能想到解决方案的能力。然后最近正好遇到一个需要绘制大量动画的需求，所以决定趁此机会好好研究一下这个既熟悉又陌生的css3。">
+<meta property="og:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(8">
+<meta property="og:image" content="http://7xtawy.com1.z0.glb.clouddn.com/css31.png">
+<meta property="og:image" content="http://7xtawy.com1.z0.glb.clouddn.com/css32.png">
+<meta property="og:image" content="http://7xtawy.com1.z0.glb.clouddn.com/css33.png">
+<meta property="og:image" content="http://7xtawy.com1.z0.glb.clouddn.com/css34.png">
+<meta property="og:image" content="http://7xtawy.com1.z0.glb.clouddn.com/css35.png">
+<meta property="og:image" content="http://7xtawy.com1.z0.glb.clouddn.com/css3hello.gif">
+<meta property="og:image" content="http://7xtawy.com1.z0.glb.clouddn.com/css39.png">
+<meta property="og:image" content="http://7xtawy.com1.z0.glb.clouddn.com/css3gradi2.gif">
+<meta property="og:image" content="http://7xtawy.com1.z0.glb.clouddn.com/css3gradi.gif">
+<meta property="og:image" content="http://7xtawy.com1.z0.glb.clouddn.com/css36.png">
+<meta property="og:image" content="http://7xtawy.com1.z0.glb.clouddn.com/css3test6.gif">
+<meta property="og:image" content="http://7xtawy.com1.z0.glb.clouddn.com/css37.png">
+<meta property="og:image" content="http://7xtawy.com1.z0.glb.clouddn.com/css3borde2.gif">
+<meta property="og:image" content="http://7xtawy.com1.z0.glb.clouddn.com/css3border.gif">
+<meta property="og:updated_time" content="2017-03-30T04:58:05.445Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3之初体验01">
+<meta name="twitter:description" content=".jpg)
+自CSS3流行以来，虽然以前看过一遍所有的新增属性，但其实在实际项目中用到的少之又少。所以没有形成系统性的认识，以及看到效果立马就能想到解决方案的能力。然后最近正好遇到一个需要绘制大量动画的需求，所以决定趁此机会好好研究一下这个既熟悉又陌生的css3。">
+<meta name="twitter:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(8">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/21/CSS3之初体验/"/>
+
+
+
+
+
+  <title> CSS3之初体验01 | web技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">web技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/21/CSS3之初体验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="柳玉美">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="web技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS3之初体验01
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-21T22:39:19+08:00">
+                2016-06-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工作/" itemprop="url" rel="index">
+                    <span itemprop="name">工作</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://github.com/yutaiwei/blog/blob/master/photo/1%20(8" alt="">.jpg)</p>
+<p>自CSS3流行以来，虽然以前看过一遍所有的新增属性，但其实在实际项目中用到的少之又少。所以没有形成系统性的认识，以及看到效果立马就能想到解决方案的能力。然后最近正好遇到一个需要绘制大量动画的需求，所以决定趁此机会好好研究一下这个既熟悉又陌生的css3。</p>
+<a id="more"></a>
+<p>在正式开始css3之前，先来介绍一些比较经典的<code>css3实例</code>，让大家好好感受一下css3的魅力，本文会提到以下几个css3的属性：</p>
+<p>border-radius、::after、attr和content、box-sizing、linear-gradient、radial-gradient、box-shadow</p>
+<h1 id="border-radius"><a href="#border-radius" class="headerlink" title="border-radius"></a>border-radius</h1><ul>
+<li><p>相信这个属性，写过css的同学都知道，用来产生圆角，比如画一个圆形：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">    <span class="attr">width</span>:<span class="number">100</span>px;</div><div class="line">    height:<span class="number">100</span>px;</div><div class="line">    background:red;</div><div class="line">    border-radius:<span class="number">100</span>px;    <span class="comment">//border-radius:100%;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  <img src="http://7xtawy.com1.z0.glb.clouddn.com/css31.png" alt=""></p>
+</li>
+<li><p>然后我们来看看它的语法：<code>border-radius: [左上] [右上] [右下] [左下]</code>，于是我们来画一个半圆</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">    <span class="attr">width</span>: <span class="number">100</span>px;</div><div class="line">    height: <span class="number">50</span>px;</div><div class="line">    background: red;</div><div class="line">    border-radius: <span class="number">50</span>px <span class="number">50</span>px <span class="number">0</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  <img src="http://7xtawy.com1.z0.glb.clouddn.com/css32.png" alt=""></p>
+</li>
+<li><p>那如果要画一个椭圆该怎么办呢？你会发现上面的语法貌似做不到了，其实border-radius的值还有一种语法: <code>x半径/y半径</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">    <span class="attr">width</span>: <span class="number">100</span>px;</div><div class="line">    height: <span class="number">50</span>px;</div><div class="line">    background: red;</div><div class="line">    border-radius: <span class="number">50</span>px/<span class="number">25</span>px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  <img src="http://7xtawy.com1.z0.glb.clouddn.com/css33.png" alt=""></p>
+</li>
+<li><p>如果我要画半个椭圆，又要咋办呢？</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">    width: 100px;</div><div class="line">    height: 50px;</div><div class="line">    background: red;</div><div class="line">    border-radius: 100% 0 0 100% /50%;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  <img src="http://7xtawy.com1.z0.glb.clouddn.com/css34.png" alt=""></p>
+</li>
+</ul>
+<h1 id="after"><a href="#after" class="headerlink" title="::after"></a>::after</h1><p>这里拿个简单的例子来看，我们要画一个放大镜，如下图：</p>
+<p><img src="http://7xtawy.com1.z0.glb.clouddn.com/css35.png" alt=""></p>
+<p>分析一下，这个放大镜可以由两个div组成，一个是黑色的圆环，一个是黑色把手（旋转45度）。所以我们就需要用两个div来实现吗？答案是NO，一个div也是可以的，我们可以借助<code>::after</code>来添加一个元素。同理如果需要三个div，我们还可以使用<code>::before</code>再添加一个元素。下面看一下代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">    width: 50px;</div><div class="line">    height: 50px;</div><div class="line">    border-radius: 50%;</div><div class="line">    border: 5px solid #333;</div><div class="line">    position: relative;</div><div class="line">&#125;</div><div class="line">div::after &#123;</div><div class="line">    content: '';</div><div class="line">    display: block;    </div><div class="line">    width: 8px;    </div><div class="line">    height: 60px;    </div><div class="line">    border-radius: 5px;    </div><div class="line">    background: #333;    </div><div class="line">    position: absolute;    </div><div class="line">    right: -22px;    </div><div class="line">    top: 38px;    </div><div class="line">    transform: rotate(-45deg);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="attr和content"><a href="#attr和content" class="headerlink" title="attr和content"></a>attr和content</h1><p>比如我们要实现一个悬浮提示的功能。传统方法，使用title属性就能实现，但是现在我们要更美观，可以使用css3提供的<code>attr：能够在css中获取到元素的某个属性值，然后插入到伪元素的content中去。</code></p>
+<p>假如我们的html代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div data-title=<span class="string">"hello, world"</span>&gt;hello...&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure>
+<p>我们来看看实现这个插件的css代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">    position: relative;</div><div class="line">&#125;</div><div class="line">div:hover::after &#123;</div><div class="line">    content: attr(data-title);    //取到data-title属性的值</div><div class="line">    display: inline-block;</div><div class="line">    padding: 10px 14px;</div><div class="line">    border: 1px solid #ddd;</div><div class="line">    border-radius: 5px;</div><div class="line">    position: absolute;</div><div class="line">    top: -50px;</div><div class="line">    left: -30px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当hover的时候，在元素尾部添加一个内容为data-title属性值的元素，所以就实现了hover显示的效果，如下图所示：</p>
+<p><img src="http://7xtawy.com1.z0.glb.clouddn.com/css3hello.gif" alt=""></p>
+<h1 id="box-sizing"><a href="#box-sizing" class="headerlink" title="box-sizing"></a>box-sizing</h1><p>我们知道，在标准盒子模型中，元素的总宽＝content + padding + border + margin。 css中的盒子模型大家可能都知道，但是这个盒子模型的属性可能没有那么多人知道，<code>box-sizing</code>属性就是用来重定义这个计算方式的，它有三个取值，分别是：<code>content-box（默认）</code>、<code>border-box</code>、<code>padding-box</code></p>
+<p>一般来说，假如我们需要有一个<code>占宽200px、padding10px、border5px的div</code>，经过计算，要这么定义样式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">    <span class="attr">width</span>: <span class="number">170</span>px;   <span class="comment">//这里的宽度要使用200-10*2-5*2 = 170得到。</span></div><div class="line">    height: <span class="number">50</span>px;</div><div class="line">    padding: <span class="number">10</span>px;</div><div class="line">    border: <span class="number">5</span>px solid red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后我们来使用一下box-sizing属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">    box-sizing: border-box;</div><div class="line">    width: <span class="number">200</span>px;  <span class="comment">//这里的宽度就是元素所占总宽度，不需要计算  </span></div><div class="line">    height: <span class="number">50</span>px;</div><div class="line">    padding: <span class="number">10</span>px;</div><div class="line">    border: <span class="number">5</span>px solid red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="linear-gradient"><a href="#linear-gradient" class="headerlink" title="linear-gradient"></a>linear-gradient</h1><p>做活动页面的时候我们经常会遇到这样的需求：</p>
+<p>顶部的中间一张大banner图片，然后整个区域的背景色要根据图片背景色渐变。就可以使用这个属性了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">    <span class="attr">width</span>: <span class="number">200</span>px;</div><div class="line">    height: <span class="number">50</span>px;</div><div class="line">    background: linear-gradient(to right, red, yellow, black, green);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://7xtawy.com1.z0.glb.clouddn.com/css39.png" alt=""></p>
+<p>是不是很有趣？其实，<code>linear-gradient</code>还有更多有趣的功能，你可以根据下面的动图去感受一下：</p>
+<p><img src="http://7xtawy.com1.z0.glb.clouddn.com/css3gradi2.gif" alt=""></p>
+<p>你以为这就完了？等等，还有更强大的呢！<code>repeating-linear-gradient</code>，来感受一下：</p>
+<p><img src="http://7xtawy.com1.z0.glb.clouddn.com/css3gradi.gif" alt=""></p>
+<p><code>linear-gradient</code>还有更加强大的功能，比如它可以给元素添加多个渐变，从而达到更NB的效果。</p>
+<h1 id="radial-gradient"><a href="#radial-gradient" class="headerlink" title="radial-gradient"></a>radial-gradient</h1><p>上面的<code>linear-gradient</code>是线性渐变，这个属性是径向渐变。下面的代码实现了一个chrome的logo。</p>
+<p><img src="http://7xtawy.com1.z0.glb.clouddn.com/css36.png" alt=""></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">div.chrome &#123;</div><div class="line">    width: 180px;</div><div class="line">    height: 180px;</div><div class="line">    border-radius: 50%;</div><div class="line">    box-shadow: 0 0 4px #999, 0 0 2px #ddd inset;</div><div class="line">    background: radial-gradient(circle, #4FACF5 0, #2196F3 28%, transparent 28%),</div><div class="line">                radial-gradient(circle, #fff 33%, transparent 33%),</div><div class="line">                linear-gradient(-50deg, #FFEB3B 34%, transparent 34%),</div><div class="line">                linear-gradient(60deg, #4CAF50 33%, transparent 33%),</div><div class="line">                linear-gradient(180deg, #FF756B 0, #F44336 30%, transparent 30%),</div><div class="line">                linear-gradient(-120deg, #FFEB3B 40%, transparent 40%),</div><div class="line">                linear-gradient(-60deg, #FFEB3B 30%, transparent 30%),</div><div class="line">                linear-gradient(0deg, #4CAF50 45%, transparent 45%),</div><div class="line">                linear-gradient(60deg, #4CAF50 30%, transparent 30%),</div><div class="line">                linear-gradient(120deg, #F44336 50%, transparent 50%),</div><div class="line">                linear-gradient(180deg, #F44336 30%, transparent 30%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>实现原理就是使用了多个渐变色放在div上，友协被遮住，视觉上就产生了想要的效果，是不是很强大！看了下图你就知道其实就是在div上加了很多个渐变。</p>
+<p><img src="http://7xtawy.com1.z0.glb.clouddn.com/css3test6.gif" alt=""></p>
+<h1 id="box-shadow"><a href="#box-shadow" class="headerlink" title="box-shadow"></a>box-shadow</h1><p>上面的例子大都是对css3新属性的了解和认识，这个实例则是有关于解决方案的例子。</p>
+<ul>
+<li><p>需求：我们要实现下面这个效果图（三个边框：黑色，绿色，红色）：</p>
+<p>  <img src="http://7xtawy.com1.z0.glb.clouddn.com/css37.png" alt=""></p>
+</li>
+<li><p>解法一：假如没有css3知识，我们可以做这样做：用三个div，分别设置边框，然后分别控制宽高和位置来达到这个效果。显然，很复杂，这里就不贴代码了。</p>
+</li>
+<li><p>解法二：现在我们有css3的知识了，借助<code>box-shadow</code>就可以轻松解决这个问题。先来看看它的语法：<code>box-shadow: [x偏移] [y偏移] [阴影模糊宽度] [阴影宽度] [颜色]</code>，并且还能添加多个阴影，使用逗号隔开。</p>
+<p>  <img src="http://7xtawy.com1.z0.glb.clouddn.com/css3borde2.gif" alt=""></p>
+<p>  当然你还可以继续增加，四重边框，五重边框……都不再是问题啦。另外，还能加圆角，阴影会贴紧内层div。</p>
+<p>  <code>使用这种方法，有一个缺点就是，不支持虚线边框。</code></p>
+</li>
+<li><p>解法三： 使用outline（只能支持两重边框）</p>
+<p>  <img src="http://7xtawy.com1.z0.glb.clouddn.com/css3border.gif" alt=""></p>
+<p>  <code>使用这种方法的缺点就是，只能支持两层的边框，而且还不能根据容器的border-radius自动贴合。</code></p>
+</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>通过这段时间对css3的深入了解，发现css3真的很强大，研究起来还是挺有趣的，只有想不到，感觉没有做不到。不过为了实现很酷炫的效果，可能需要编写大量的css代码，这个时候使用什么技术就需要我们自己来衡量了。</p>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS3/" rel="tag"># CSS3</a>
+          
+            <a href="/tags/实例/" rel="tag"># 实例</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/20/css雪碧图/" rel="next" title="css雪碧图">
+                <i class="fa fa-chevron-left"></i> css雪碧图
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/25/JavaScript书签/" rel="prev" title="JavaScript书签">
+                JavaScript书签 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="柳玉美" />
+          <p class="site-author-name" itemprop="name">柳玉美</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#border-radius"><span class="nav-number">1.</span> <span class="nav-text">border-radius</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#after"><span class="nav-number">2.</span> <span class="nav-text">::after</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#attr和content"><span class="nav-number">3.</span> <span class="nav-text">attr和content</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#box-sizing"><span class="nav-number">4.</span> <span class="nav-text">box-sizing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linear-gradient"><span class="nav-number">5.</span> <span class="nav-text">linear-gradient</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#radial-gradient"><span class="nav-number">6.</span> <span class="nav-text">radial-gradient</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#box-shadow"><span class="nav-number">7.</span> <span class="nav-text">box-shadow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柳玉美</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

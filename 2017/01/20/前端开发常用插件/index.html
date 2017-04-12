@@ -1,0 +1,746 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端,插件," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content=".jpg)
+前言最近在阅读公司官网的前端代码，使用了很多插件。挨个百度，简单记录下，看看他们都是干什么的。
+jQuery UIjQuery UI API中文文档http://www.css88.com/jquery-ui-api/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端开发常用插件">
+<meta property="og:url" content="http://yoursite.com/2017/01/20/前端开发常用插件/index.html">
+<meta property="og:site_name" content="web技术博客">
+<meta property="og:description" content=".jpg)
+前言最近在阅读公司官网的前端代码，使用了很多插件。挨个百度，简单记录下，看看他们都是干什么的。
+jQuery UIjQuery UI API中文文档http://www.css88.com/jquery-ui-api/">
+<meta property="og:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(50">
+<meta property="og:updated_time" content="2017-03-28T08:13:12.783Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端开发常用插件">
+<meta name="twitter:description" content=".jpg)
+前言最近在阅读公司官网的前端代码，使用了很多插件。挨个百度，简单记录下，看看他们都是干什么的。
+jQuery UIjQuery UI API中文文档http://www.css88.com/jquery-ui-api/">
+<meta name="twitter:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(50">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/20/前端开发常用插件/"/>
+
+
+
+
+
+  <title> 前端开发常用插件 | web技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">web技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/20/前端开发常用插件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="柳玉美">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="web技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端开发常用插件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-20T21:43:53+08:00">
+                2017-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计开发/" itemprop="url" rel="index">
+                    <span itemprop="name">设计开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://github.com/yutaiwei/blog/blob/master/photo/1%20(50" alt="">.jpg)</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在阅读公司官网的前端代码，使用了很多插件。挨个百度，简单记录下，看看他们都是干什么的。</p>
+<h1 id="jQuery-UI"><a href="#jQuery-UI" class="headerlink" title="jQuery UI"></a>jQuery UI</h1><p>jQuery UI API中文文档<br><a href="http://www.css88.com/jquery-ui-api/" target="_blank" rel="external">http://www.css88.com/jquery-ui-api/</a></p>
+<a id="more"></a>
+<h1 id="Swiper"><a href="#Swiper" class="headerlink" title="Swiper"></a>Swiper</h1><p>Swiper是纯javascript打造的滑动特效插件，面向手机、平板电脑等移动终端。</p>
+<p>Swiper能实现触屏焦点图、触屏Tab切换、触屏多图切换等常用效果。<br>Swiper开源、免费、稳定、使用简单、功能强大，是架构移动终端网站的重要选择！</p>
+<p>Swiper中文网<br><a href="http://www.swiper.com.cn/" target="_blank" rel="external">http://www.swiper.com.cn/</a></p>
+<p>官网<br><a href="http://www.idangero.us/swiper/" target="_blank" rel="external">http://www.idangero.us/swiper/</a></p>
+<h1 id="BlockUI"><a href="#BlockUI" class="headerlink" title="BlockUI"></a>BlockUI</h1><p>jQuery BlockUI Plugin<br><a href="http://malsup.com/jquery/block/" target="_blank" rel="external">http://malsup.com/jquery/block/</a></p>
+<p>blockui github<br><a href="https://github.com/malsup/blockui/" target="_blank" rel="external">https://github.com/malsup/blockui/</a></p>
+<p>jQuery遮罩插件jQuery.blockUI.js简介<br><a href="http://bookshadow.com/weblog/2014/09/26/jquery-blockui-js-introduction/" target="_blank" rel="external">http://bookshadow.com/weblog/2014/09/26/jquery-blockui-js-introduction/</a></p>
+<h1 id="email-autocomplete"><a href="#email-autocomplete" class="headerlink" title="email-autocomplete"></a>email-autocomplete</h1><p>email-autocomplete<br><a href="https://github.com/10w042/email-autocomplete" target="_blank" rel="external">https://github.com/10w042/email-autocomplete</a></p>
+<h1 id="jQuery-Autocomplete"><a href="#jQuery-Autocomplete" class="headerlink" title="jQuery-Autocomplete"></a>jQuery-Autocomplete</h1><p>jQuery-Autocomplete<br><a href="https://github.com/devbridge/jQuery-Autocomplete" target="_blank" rel="external">https://github.com/devbridge/jQuery-Autocomplete</a></p>
+<h1 id="chosen"><a href="#chosen" class="headerlink" title="chosen"></a>chosen</h1><p>chosen<br><a href="https://github.com/harvesthq/chosen" target="_blank" rel="external">https://github.com/harvesthq/chosen</a></p>
+<p>Chosen (v1.4.2)<br><a href="http://harvesthq.github.io/chosen/" target="_blank" rel="external">http://harvesthq.github.io/chosen/</a></p>
+<h1 id="ajaxfileupload"><a href="#ajaxfileupload" class="headerlink" title="ajaxfileupload"></a>ajaxfileupload</h1><p>jQuery插件之ajaxFileUpload<br><a href="http://www.cnblogs.com/kissdodog/archive/2012/12/15/2819025.html" target="_blank" rel="external">http://www.cnblogs.com/kissdodog/archive/2012/12/15/2819025.html</a></p>
+<h1 id="html2canvas"><a href="#html2canvas" class="headerlink" title="html2canvas"></a>html2canvas</h1><p>html2canvas<br><a href="http://www.bootcdn.cn/html2canvas/" target="_blank" rel="external">http://www.bootcdn.cn/html2canvas/</a></p>
+<h1 id="百度地图"><a href="#百度地图" class="headerlink" title="百度地图"></a>百度地图</h1><p>百度地图API<br><a href="http://lbsyun.baidu.com/" target="_blank" rel="external">http://lbsyun.baidu.com/</a></p>
+<h1 id="moment"><a href="#moment" class="headerlink" title="moment"></a>moment</h1><p>JavaScript 日期处理类库</p>
+<p>Moment.js中文网<br><a href="http://momentjs.cn/" target="_blank" rel="external">http://momentjs.cn/</a></p>
+<h1 id="pagination"><a href="#pagination" class="headerlink" title="pagination"></a>pagination</h1><p>jQuery Pagination plugin<br><a href="http://esimakin.github.io/twbs-pagination/" target="_blank" rel="external">http://esimakin.github.io/twbs-pagination/</a></p>
+<h1 id="placeholder"><a href="#placeholder" class="headerlink" title="placeholder"></a>placeholder</h1><p>jquery-placeholder<br><a href="https://github.com/mathiasbynens/jquery-placeholder" target="_blank" rel="external">https://github.com/mathiasbynens/jquery-placeholder</a></p>
+<h1 id="rome"><a href="#rome" class="headerlink" title="rome"></a>rome</h1><p>rome<br><a href="http://spmjs.io/package/rome" target="_blank" rel="external">http://spmjs.io/package/rome</a></p>
+<h1 id="validation"><a href="#validation" class="headerlink" title="validation"></a>validation</h1><p>validation官方文档<br><a href="http://jqueryvalidation.org/documentation" target="_blank" rel="external">http://jqueryvalidation.org/documentation</a></p>
+<h1 id="zepto"><a href="#zepto" class="headerlink" title="zepto"></a>zepto</h1><p>Zepto is a minimalist JavaScript library for modern browsers with a largely jQuery-compatible API.</p>
+<p>zepto中文网<br><a href="http://www.zeptojs.cn/" target="_blank" rel="external">http://www.zeptojs.cn/</a></p>
+<h1 id="tooltipster"><a href="#tooltipster" class="headerlink" title="tooltipster"></a>tooltipster</h1><p>A powerful, flexible jQuery plugin enabling you to easily create semantic, modern tooltips enhanced with the power of CSS.</p>
+<p>官网<br><a href="http://iamceege.github.io/tooltipster/" target="_blank" rel="external">http://iamceege.github.io/tooltipster/</a></p>
+<h1 id="lazyload"><a href="#lazyload" class="headerlink" title="lazyload"></a>lazyload</h1><p>Lazy Load Plugin for jQuery<br><a href="http://www.appelsiini.net/projects/lazyload" target="_blank" rel="external">http://www.appelsiini.net/projects/lazyload</a></p>
+<p>lazyload项目地址：<br><a href="https://github.com/tuupola/jquery_lazyload" target="_blank" rel="external">https://github.com/tuupola/jquery_lazyload</a></p>
+<h1 id="Masonry"><a href="#Masonry" class="headerlink" title="Masonry"></a>Masonry</h1><p>Masonry官网<br><a href="http://masonry.desandro.com/" target="_blank" rel="external">http://masonry.desandro.com/</a></p>
+<p>mosonry项目地址：<br><a href="https://github.com/desandro/masonry" target="_blank" rel="external">https://github.com/desandro/masonry</a></p>
+<h1 id="imageLoaded"><a href="#imageLoaded" class="headerlink" title="imageLoaded"></a>imageLoaded</h1><p>imagesLoaded官网<br><a href="http://imagesloaded.desandro.com/" target="_blank" rel="external">http://imagesloaded.desandro.com/</a></p>
+<p>imagesloaded项目地址：<br><a href="https://github.com/desandro/imagesloaded" target="_blank" rel="external">https://github.com/desandro/imagesloaded</a></p>
+<h1 id="touch-js"><a href="#touch-js" class="headerlink" title="touch.js"></a>touch.js</h1><p>Touch.js官网<br><a href="http://touch.code.baidu.com/" target="_blank" rel="external">http://touch.code.baidu.com/</a></p>
+<h1 id="iscroll"><a href="#iscroll" class="headerlink" title="iscroll"></a>iscroll</h1><p>iScroll官网<br><a href="http://cubiq.org/iscroll-5" target="_blank" rel="external">http://cubiq.org/iscroll-5</a></p>
+<p>iScroll文档<br><a href="http://iscrolljs.com/" target="_blank" rel="external">http://iscrolljs.com/</a></p>
+<p>iScroll项目地址<br><a href="https://github.com/cubiq/iscroll" target="_blank" rel="external">https://github.com/cubiq/iscroll</a></p>
+<p>【iScroll源码学习00】模拟iScroll<br><a href="http://www.cnblogs.com/yexiaochai/p/3489676.html" target="_blank" rel="external">http://www.cnblogs.com/yexiaochai/p/3489676.html</a></p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>优点：开发成本低、时间短；稳定性、兼容性良好。<br>缺点：不懂原理，遇到问题不好解决。</p>
+<p>提供给开发者的 20 款最棒的 jQuery Bootstrap 插件<br><a href="http://www.oschina.net/translate/20-best-jquery-bootstrap-plugins-for-developers" target="_blank" rel="external">http://www.oschina.net/translate/20-best-jquery-bootstrap-plugins-for-developers</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/插件/" rel="tag"># 插件</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/17/解决iscroll-js上拉下拉刷新手指划出屏幕无法弹回问题/" rel="next" title="解决iscroll.js上拉下拉刷新手指划出屏幕页面无法回弹问题">
+                <i class="fa fa-chevron-left"></i> 解决iscroll.js上拉下拉刷新手指划出屏幕页面无法回弹问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/29/清白家风/" rel="prev" title="清白家风">
+                清白家风 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="柳玉美" />
+          <p class="site-author-name" itemprop="name">柳玉美</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery-UI"><span class="nav-number">2.</span> <span class="nav-text">jQuery UI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Swiper"><span class="nav-number">3.</span> <span class="nav-text">Swiper</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BlockUI"><span class="nav-number">4.</span> <span class="nav-text">BlockUI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#email-autocomplete"><span class="nav-number">5.</span> <span class="nav-text">email-autocomplete</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery-Autocomplete"><span class="nav-number">6.</span> <span class="nav-text">jQuery-Autocomplete</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chosen"><span class="nav-number">7.</span> <span class="nav-text">chosen</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ajaxfileupload"><span class="nav-number">8.</span> <span class="nav-text">ajaxfileupload</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#html2canvas"><span class="nav-number">9.</span> <span class="nav-text">html2canvas</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#百度地图"><span class="nav-number">10.</span> <span class="nav-text">百度地图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#moment"><span class="nav-number">11.</span> <span class="nav-text">moment</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pagination"><span class="nav-number">12.</span> <span class="nav-text">pagination</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#placeholder"><span class="nav-number">13.</span> <span class="nav-text">placeholder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rome"><span class="nav-number">14.</span> <span class="nav-text">rome</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#validation"><span class="nav-number">15.</span> <span class="nav-text">validation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zepto"><span class="nav-number">16.</span> <span class="nav-text">zepto</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tooltipster"><span class="nav-number">17.</span> <span class="nav-text">tooltipster</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lazyload"><span class="nav-number">18.</span> <span class="nav-text">lazyload</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Masonry"><span class="nav-number">19.</span> <span class="nav-text">Masonry</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#imageLoaded"><span class="nav-number">20.</span> <span class="nav-text">imageLoaded</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#touch-js"><span class="nav-number">21.</span> <span class="nav-text">touch.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iscroll"><span class="nav-number">22.</span> <span class="nav-text">iscroll</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">23.</span> <span class="nav-text">后记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柳玉美</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

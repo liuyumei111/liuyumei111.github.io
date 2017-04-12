@@ -1,0 +1,759 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ES6,Array,Array comprehensions," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content=".jpg)
+ECMAScript6对数组进行了扩展，为数组Array构造函数添加了from()、of()等静态方法，也为数组实例添加了find()、findIndex()等方法。下面一起来看一下这些方法的用法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6对数组的扩展">
+<meta property="og:url" content="http://yoursite.com/2016/08/15/ES6对数组的扩展/index.html">
+<meta property="og:site_name" content="web技术博客">
+<meta property="og:description" content=".jpg)
+ECMAScript6对数组进行了扩展，为数组Array构造函数添加了from()、of()等静态方法，也为数组实例添加了find()、findIndex()等方法。下面一起来看一下这些方法的用法。">
+<meta property="og:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(24">
+<meta property="og:updated_time" content="2017-03-28T07:22:38.857Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6对数组的扩展">
+<meta name="twitter:description" content=".jpg)
+ECMAScript6对数组进行了扩展，为数组Array构造函数添加了from()、of()等静态方法，也为数组实例添加了find()、findIndex()等方法。下面一起来看一下这些方法的用法。">
+<meta name="twitter:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(24">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/15/ES6对数组的扩展/"/>
+
+
+
+
+
+  <title> ES6对数组的扩展 | web技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">web技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/15/ES6对数组的扩展/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="柳玉美">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="web技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ES6对数组的扩展
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-15T19:57:30+08:00">
+                2016-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://github.com/yutaiwei/blog/blob/master/photo/1%20(24" alt="">.jpg)</p>
+<p><code>ECMAScript6</code>对数组进行了扩展，为数组<code>Array</code>构造函数添加了<code>from()</code>、<code>of()</code>等静态方法，也为数组实例添加了<code>find()</code>、<code>findIndex()</code>等方法。下面一起来看一下这些方法的用法。</p>
+<a id="more"></a>
+<h2 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a>Array.from()</h2><p><code>Array.from()</code>将类数组(array-like)对象与可遍历的对象转化为数组并返回。例如将dom节点集合转化为数组，以前我们可能都会这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var divs = document.querySelectAll(&quot;div&quot;);</div><div class="line">[].slice.call(divs).forEach(function (node) &#123;</div><div class="line">   console.log(node);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>现在我们可以这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var divs = document.querySelectAll(&quot;div&quot;);</div><div class="line">Array.from(divs).forEach(function (node) &#123;</div><div class="line">   console.log(node);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>上面两种写法基本上是相同的。</p>
+<p><code>Array.from()</code>也可以将ES6中新增的<code>Set</code>、<code>Map</code>等结构转化为数组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 将Set结构转化为数组</div><div class="line">Array.from(new Set([1, 2, 3, 4])); // [1, 2, 3, 4]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//将Map结构转化为数组</div><div class="line">Array.from(new Map([&quot;name&quot;, &quot;zlw&quot;])); // [&quot;name&quot;, &quot;zlw&quot;]</div></pre></td></tr></table></figure>
+<p>字符串既是类数组又是可遍历的，所以<code>Array.from()</code>也可将字符串转化为数组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.from(&quot;zlw&quot;); // [&quot;z&quot;, &quot;l&quot;, &quot;w&quot;]</div></pre></td></tr></table></figure>
+<p><code>Array.from()</code>还有两个可选参数，完整语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.from(obj, mapFn, thisArg)</div></pre></td></tr></table></figure>
+<p><code>mapFn</code>其实就是数组的<code>map</code>方法，对数组的每个元素处理。<code>thisArg</code>是执行环境的上下文。<code>Array.from(obj, mapFn, thisArg)</code>等同于<code>Array.from(obj).map(mapFn, thisArg)</code>。</p>
+<h2 id="Array-of"><a href="#Array-of" class="headerlink" title="Array.of()"></a>Array.of()</h2><p><code>Array.of()</code>将其参数转化为数组。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.of(1, 2, 3); // [1, 2, 3]</div></pre></td></tr></table></figure>
+<p>我们知道用<code>Array</code>构造函数也可以实现同样功能：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array(1, 2, 3) // [1, 2, 3]</div></pre></td></tr></table></figure>
+<p>他们的不同之处在于：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Array.of(3); // [3]</div><div class="line"></div><div class="line">Array(3) // [undefined, undefined, undefined]</div></pre></td></tr></table></figure>
+<p>当传入一个参数时，<code>Array.of()</code>会返回只有一个元素的数组，而<code>Array()</code>会返回长度为传入参数而元素都为<code>undefined</code>的数组。</p>
+<h2 id="Array-prototype-fill"><a href="#Array-prototype-fill" class="headerlink" title="Array.prototype.fill()"></a>Array.prototype.fill()</h2><p><code>fill()</code>方法用一个值填充数组给定开始和结束位置之间的的所有值，语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fill(value, start, end)</div></pre></td></tr></table></figure>
+<p>参数<code>start</code>、<code>end</code>是填充区间，包含<code>start</code>位置，但不包含<code>end</code>位置。如果省略，则<code>start</code>默认值为<code>0</code>，<code>end</code>默认值为数组长度。如果两个可选参数中有一个是负数，则用数组长度加上该数来确定相应的位置。例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3].fill(4) // [4, 4, 4]</div><div class="line">[1, 2, 3].fill(4, 1, 2) // [1, 4, 3]</div><div class="line">[1, 2, 3].fill(4, -3, -2) // [4, 2, 3]</div></pre></td></tr></table></figure>
+<h2 id="Array-prototype-find-与Array-prototype-findIndex"><a href="#Array-prototype-find-与Array-prototype-findIndex" class="headerlink" title="Array.prototype.find()与Array.prototype.findIndex()"></a>Array.prototype.find()与Array.prototype.findIndex()</h2><p><code>find()</code>方法返回数组中符合条件的第一个元素，如果没有则返回<code>undefind</code>。语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">array.find(callback, context);</div></pre></td></tr></table></figure>
+<p>参数包括一个回调函数和一个可选参数(执行环境上下文）。回调函数会遍历数组的所有元素，直到找到符合条件的元素，然后<code>find()</code>方法返回该元素。例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3, 4].find(function(el, index, arr) &#123;</div><div class="line">   return el &gt; 2;</div><div class="line">&#125;) // 3</div><div class="line"></div><div class="line">[1, 2, 3, 4].find(function(el, index, arr) &#123;</div><div class="line">　　return el &gt; 4;</div><div class="line">&#125;) // undefined</div></pre></td></tr></table></figure>
+<p><code>findIndex()</code>方法与<code>find()</code>方法用法类似，返回的是第一个符合条件的元素的索引，如果没有则返回<code>-1</code>。例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3, 4].findIndex(function(el, index, arr) &#123;</div><div class="line">   return el &gt; 2;</div><div class="line">&#125;) // 2</div><div class="line"></div><div class="line">[1, 2, 3, 4].findIndex(function(el, index, arr) &#123;</div><div class="line">　　return el &gt; 4;</div><div class="line">&#125;) // -1</div></pre></td></tr></table></figure>
+<h2 id="Array-prototype-entries-、Array-prototype-keys与Array-prototype-values"><a href="#Array-prototype-entries-、Array-prototype-keys与Array-prototype-values" class="headerlink" title="Array.prototype.entries()、Array.prototype.keys与Array.prototype.values()"></a>Array.prototype.entries()、Array.prototype.keys与Array.prototype.values()</h2><p><code>entries()</code>、<code>keys</code>与<code>values</code>都返回一个数组迭代器对象。例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var entries = [1, 2, 3].entries();</div><div class="line">console.log(entries.next().value); // [0, 1]</div><div class="line">console.log(entries.next().value); // [1, 2]</div><div class="line">console.log(entries.next().value); // [2, 3]</div><div class="line"></div><div class="line">var keys = [1, 2, 3].keys();</div><div class="line">console.log(keys.next().value); // 0</div><div class="line">console.log(keys.next().value); // 1</div><div class="line">console.log(keys.next().value); // 2</div><div class="line"></div><div class="line">var valuess = [1, 2, 3].values();</div><div class="line">console.log(values.next().value); // 1</div><div class="line">console.log(values.next().value); // 2</div><div class="line">console.log(values.next().value); // 3</div></pre></td></tr></table></figure>
+<p>迭代器的<code>next()</code>方法返回的是一个包含<code>value</code>属性与<code>done</code>属性的对象，而<code>value</code>属性是当前遍历位置的值，<code>done</code>属性是一个布尔值，表示遍历是否结束。</p>
+<p>我们也可以用<code>for...of</code>来遍历迭代器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">for (let i of entries) &#123;</div><div class="line">  console.log(i)</div><div class="line">&#125; // [0, 1]、[1, 2]、[2, 3]</div><div class="line"></div><div class="line">for (let [index, value] of entries) &#123;</div><div class="line">  console.log(index, value)</div><div class="line">&#125; // 0 1、1 2、2 3</div><div class="line"></div><div class="line">for (let key of keys) &#123;</div><div class="line">  console.log(key)</div><div class="line">&#125; // 0, 1, 2</div><div class="line"></div><div class="line">for (let value of values) &#123;</div><div class="line">  console.log(value)</div><div class="line">&#125; // 1, 2, 3</div></pre></td></tr></table></figure>
+<h2 id="Array-prototype-copyWithin"><a href="#Array-prototype-copyWithin" class="headerlink" title="Array.prototype.copyWithin()"></a>Array.prototype.copyWithin()</h2><p><code>copyWithin()</code>方法语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.copyWithin(target, start, end = this.length)</div></pre></td></tr></table></figure>
+<p>最后一个参数为可选参数，省略则为数组长度。该方法在数组内复制从<code>start</code>(包含<code>start</code>)位置到<code>end</code>(不包含<code>end</code>)位置的一组元素覆盖到以<code>target</code>为开始位置的地方。例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3, 4].copyWithin(0, 1) // [2, 3, 4, 4]</div><div class="line"></div><div class="line">[1, 2, 3, 4].copyWithin(0, 1, 2) // [2, 2, 3, 4]</div></pre></td></tr></table></figure>
+<p>如果<code>start</code>、<code>end</code>参数是负数，则用数组长度加上该参数来确定相应的位置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3, 4].copyWithin(0, -2, -1) // [3, 2, 3, 4]</div></pre></td></tr></table></figure>
+<p>需要注意<code>copyWithin()</code>改变的是数组本身，并返回改变后的数组，而不是返回原数组的副本。</p>
+<h2 id="数组推导-array-comprehensions"><a href="#数组推导-array-comprehensions" class="headerlink" title="数组推导(array comprehensions)"></a>数组推导(array comprehensions)</h2><p>数组推导就是利用<code>for...of</code>循环基于现有的数组生成新数组。例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[for (i of [1, 2, 3]) i * i]  // [1, 4, 9]</div></pre></td></tr></table></figure>
+<p>数组推导允许使用<code>if</code>语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 单个if语句</div><div class="line">[for (i of [1, 2, 3]) if (i &lt; 3) i] // [1, 2]</div><div class="line"></div><div class="line">//多重if语句</div><div class="line">[for (i of [1, 2, 3]) if (i &lt; 3) if (i &gt; 1) i] // [2]</div></pre></td></tr></table></figure>
+<p>需要注意的是<code>for...of</code>总是写在最前面。</p>
+<p>数组推导也允许使用多重<code>for..of</code>循环：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[for (i of [1, 2, 3]) for (j of [4, 5, 6]) i * j] // [4, 5, 6, 8, 10, 12, 12, 15, 18]</div></pre></td></tr></table></figure>
+<p>数组推导中还可以包含数组推导：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[for (i of [1, 2, 3]) [for (j of [4, 5, 6]) i * j]] // [[4, 5, 6], [8, 10, 12], [12, 15, 18]]</div></pre></td></tr></table></figure>
+<p>各大浏览器对ES6的支持可以查看kangax.github.io/es5-compat-table/es6/。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ES6/" rel="tag"># ES6</a>
+          
+            <a href="/tags/Array/" rel="tag"># Array</a>
+          
+            <a href="/tags/Array-comprehensions/" rel="tag"># Array comprehensions</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/02/AngularJS按需加载js/" rel="next" title="AngularJS按需加载js">
+                <i class="fa fa-chevron-left"></i> AngularJS按需加载js
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/15/ES6的新写法/" rel="prev" title="ES6的新写法">
+                ES6的新写法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="柳玉美" />
+          <p class="site-author-name" itemprop="name">柳玉美</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-from"><span class="nav-number">1.</span> <span class="nav-text">Array.from()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-of"><span class="nav-number">2.</span> <span class="nav-text">Array.of()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-prototype-fill"><span class="nav-number">3.</span> <span class="nav-text">Array.prototype.fill()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-prototype-find-与Array-prototype-findIndex"><span class="nav-number">4.</span> <span class="nav-text">Array.prototype.find()与Array.prototype.findIndex()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-prototype-entries-、Array-prototype-keys与Array-prototype-values"><span class="nav-number">5.</span> <span class="nav-text">Array.prototype.entries()、Array.prototype.keys与Array.prototype.values()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-prototype-copyWithin"><span class="nav-number">6.</span> <span class="nav-text">Array.prototype.copyWithin()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组推导-array-comprehensions"><span class="nav-number">7.</span> <span class="nav-text">数组推导(array comprehensions)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柳玉美</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

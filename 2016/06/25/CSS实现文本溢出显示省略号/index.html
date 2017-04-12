@@ -1,0 +1,721 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端,css," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content=".jpg)
+单行文本溢出显示省略号1234width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+如果字符串长度超过300px，那么超出部分就变成...。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS实现文本溢出显示省略号">
+<meta property="og:url" content="http://yoursite.com/2016/06/25/CSS实现文本溢出显示省略号/index.html">
+<meta property="og:site_name" content="web技术博客">
+<meta property="og:description" content=".jpg)
+单行文本溢出显示省略号1234width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+如果字符串长度超过300px，那么超出部分就变成...。">
+<meta property="og:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(10">
+<meta property="og:updated_time" content="2017-03-28T07:01:27.568Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS实现文本溢出显示省略号">
+<meta name="twitter:description" content=".jpg)
+单行文本溢出显示省略号1234width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+如果字符串长度超过300px，那么超出部分就变成...。">
+<meta name="twitter:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(10">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/25/CSS实现文本溢出显示省略号/"/>
+
+
+
+
+
+  <title> CSS实现文本溢出显示省略号 | web技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">web技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/25/CSS实现文本溢出显示省略号/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="柳玉美">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="web技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS实现文本溢出显示省略号
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-25T21:43:53+08:00">
+                2016-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计开发/" itemprop="url" rel="index">
+                    <span itemprop="name">设计开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://github.com/yutaiwei/blog/blob/master/photo/1%20(10" alt="">.jpg)</p>
+<h1 id="单行文本溢出显示省略号"><a href="#单行文本溢出显示省略号" class="headerlink" title="单行文本溢出显示省略号"></a>单行文本溢出显示省略号</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">width: 300px; </div><div class="line">overflow: hidden; </div><div class="line">text-overflow: ellipsis; </div><div class="line">white-space: nowrap;</div></pre></td></tr></table></figure>
+<p>如果字符串长度超过300px，那么超出部分就变成<code>...</code>。</p>
+<a id="more"></a>
+<h1 id="多行文本溢出显示省略号"><a href="#多行文本溢出显示省略号" class="headerlink" title="多行文本溢出显示省略号"></a>多行文本溢出显示省略号</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">display: -webkit-box;</div><div class="line">-webkit-box-orient: vertical;</div><div class="line">-webkit-line-clamp: 3;</div><div class="line">overflow: hidden;</div></pre></td></tr></table></figure>
+<p>因为使用了WebKit的CSS扩展属性，该方法适用于WebKit浏览器及移动端；</p>
+<p>-webkit-line-clamp用来限制在一个块元素显示的文本的行数。为了实现该效果，它需要组合其他的WebKit属性。常见结合属性：<br>display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。<br>-webkit-box-orient 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。</p>
+<h1 id="怎样在js中判断文本是否溢出"><a href="#怎样在js中判断文本是否溢出" class="headerlink" title="怎样在js中判断文本是否溢出"></a>怎样在js中判断文本是否溢出</h1><p>问题描述：<br>一段文字限定行数，使用css把多余文字显示为省略号，请问怎么通过js判断这段文字是否有文字显示为省略号？</p>
+<h2 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h2><p>王晨帅哥提供了一个思路：取消css的-webkit-line-clamp属性，看看元素高度是否发生了变化，变化了就是有文字显示为省略号。</p>
+<p>好想法，最后小编改进后如下：这段文字在页面上放两份，一份限定行数，正常显示；另一份不限定行数，隐藏起来。然后，对比这两段文字的高度是否相同。<br>具体实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">// scss部分</div><div class="line">.info&#123;</div><div class="line">    font-size: 1.2rem;</div><div class="line">    margin-top: .6rem;</div><div class="line">    display: -webkit-box;</div><div class="line">    -webkit-box-orient: vertical;</div><div class="line">    -webkit-line-clamp: 4;</div><div class="line">    overflow: hidden;</div><div class="line">    p&#123;</div><div class="line">        &amp;:not(:first-child)&#123;</div><div class="line">            margin-top: .4rem;</div><div class="line">        &#125;;  </div><div class="line">        line-height: 1.8rem;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.info-hidden&#123;</div><div class="line">    position: fixed;</div><div class="line">    z-index: -10;</div><div class="line">    visibility: hidden;</div><div class="line">    font-size: 1.2rem;</div><div class="line">    margin-top: .6rem;</div><div class="line">    p&#123;</div><div class="line">        &amp;:not(:first-child)&#123;</div><div class="line">            margin-top: .4rem;</div><div class="line">        &#125;;  </div><div class="line">        line-height: 1.8rem;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// js部分</div><div class="line">var $info = $(&apos;.info&apos;);</div><div class="line">var $info_hidden = $(&apos;.info-hidden&apos;);</div><div class="line">if($info.height() === $info_hidden.height())&#123;</div><div class="line">    $(&apos;.more&apos;).hide();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h2><p>后来张伟林帅哥提供了一个更好的思路：既然已经知道了限定的行数，那么判断一个高度就可以了。结合line-height，高度用scrollheight，判断scrollheight &gt; line-height*你决定的行数。</p>
+<p>小编马上搜索了一个scrollheight，发现，原来scrollHeight可以返回元素的完整高度。那么，比较一下scrollHeight和height不就可以了么？<br>具体实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// js部分</div><div class="line">var $info = $(&apos;.info&apos;);</div><div class="line">console.log($info.height());</div><div class="line">console.log($info[0].scrollHeight);</div><div class="line">if($info.height() &gt;= $info[0].scrollHeight)&#123;</div><div class="line">    $(&apos;.more&apos;).hide();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>利用js也可以实现文本溢出显示省略号，可以参考书签中的dotdotdot，很形象的名字。。。</p>
+<h1 id="书签"><a href="#书签" class="headerlink" title="书签"></a>书签</h1><p>CSS实现单行、多行文本溢出显示省略号（…）<br><a href="http://www.daqianduan.com/6179.html" target="_blank" rel="external">http://www.daqianduan.com/6179.html</a></p>
+<p>jQuery.dotdotdot<br><a href="http://www.bootcdn.cn/jQuery.dotdotdot/" target="_blank" rel="external">http://www.bootcdn.cn/jQuery.dotdotdot/</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/25/JavaScript书签/" rel="next" title="JavaScript书签">
+                <i class="fa fa-chevron-left"></i> JavaScript书签
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/29/HTML5和CSS3学习资料/" rel="prev" title="HTML5和CSS3学习资料">
+                HTML5和CSS3学习资料 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="柳玉美" />
+          <p class="site-author-name" itemprop="name">柳玉美</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单行文本溢出显示省略号"><span class="nav-number">1.</span> <span class="nav-text">单行文本溢出显示省略号</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多行文本溢出显示省略号"><span class="nav-number">2.</span> <span class="nav-text">多行文本溢出显示省略号</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#怎样在js中判断文本是否溢出"><span class="nav-number">3.</span> <span class="nav-text">怎样在js中判断文本是否溢出</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路一"><span class="nav-number">3.1.</span> <span class="nav-text">思路一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路二"><span class="nav-number">3.2.</span> <span class="nav-text">思路二</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#书签"><span class="nav-number">5.</span> <span class="nav-text">书签</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柳玉美</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

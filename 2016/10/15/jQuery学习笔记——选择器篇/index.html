@@ -1,0 +1,971 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,jQuery," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content=".jpg)
+选择器语法jQuery选择元素的语法为：$(selector,[content]);
+如果第一个参数是选择器，那么第二个参数就是指示该操作的上下文，默认为整个DOM文档。上下文参数可以是DOM元素的引用，也可以包含jQuery选择器的字符串，或者是DOM元素包装集。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery学习笔记——选择器篇">
+<meta property="og:url" content="http://yoursite.com/2016/10/15/jQuery学习笔记——选择器篇/index.html">
+<meta property="og:site_name" content="web技术博客">
+<meta property="og:description" content=".jpg)
+选择器语法jQuery选择元素的语法为：$(selector,[content]);
+如果第一个参数是选择器，那么第二个参数就是指示该操作的上下文，默认为整个DOM文档。上下文参数可以是DOM元素的引用，也可以包含jQuery选择器的字符串，或者是DOM元素包装集。">
+<meta property="og:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(34">
+<meta property="og:updated_time" content="2017-03-28T07:40:35.613Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery学习笔记——选择器篇">
+<meta name="twitter:description" content=".jpg)
+选择器语法jQuery选择元素的语法为：$(selector,[content]);
+如果第一个参数是选择器，那么第二个参数就是指示该操作的上下文，默认为整个DOM文档。上下文参数可以是DOM元素的引用，也可以包含jQuery选择器的字符串，或者是DOM元素包装集。">
+<meta name="twitter:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(34">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/15/jQuery学习笔记——选择器篇/"/>
+
+
+
+
+
+  <title> jQuery学习笔记——选择器篇 | web技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">web技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/15/jQuery学习笔记——选择器篇/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="柳玉美">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="web技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jQuery学习笔记——选择器篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-15T15:05:25+08:00">
+                2016-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计开发/" itemprop="url" rel="index">
+                    <span itemprop="name">设计开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://github.com/yutaiwei/blog/blob/master/photo/1%20(34" alt="">.jpg)</p>
+<h3 id="选择器语法"><a href="#选择器语法" class="headerlink" title="选择器语法"></a>选择器语法</h3><p>jQuery选择元素的语法为：<code>$(selector,[content]);</code></p>
+<p>如果第一个参数是选择器，那么第二个参数就是指示该操作的上下文，默认为整个DOM文档。上下文参数可以是DOM元素的引用，也可以包含jQuery选择器的字符串，或者是DOM元素包装集。<br><a id="more"></a><br>上文hello voidking中的html文件内容修改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;	</div><div class="line">	&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.10.2.js&quot;&gt;&lt;/script&gt;</div><div class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">		$(function()&#123;</div><div class="line">			$(&quot;p&quot;,&quot;div#voidking&quot;).css(&quot;color&quot;,&quot;red&quot;);</div><div class="line">		&#125;);</div><div class="line">	&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;div id=&quot;voidking&quot;&gt;</div><div class="line">		&lt;p&gt;</div><div class="line">			welcome to jQuery world !</div><div class="line">		&lt;/p&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;p&gt;</div><div class="line">		welcome to jQuery world !</div><div class="line">	&lt;/p&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>在浏览器中打开，我们发现，只有第一行是红色的。这是因为，$(“p”,”div#voidking”)指定的范围是：id值为voidking的<div>元素内。</div></p>
+<h3 id="CSS基本选择器"><a href="#CSS基本选择器" class="headerlink" title="CSS基本选择器"></a>CSS基本选择器</h3><h4 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h4><p>获取一个id为voidking的元素。</p>
+<p>在CSS中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#voidking&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在jQuery中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;#voidking&quot;).css(&quot;color&quot;,&quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<h4 id="class选择器"><a href="#class选择器" class="headerlink" title="class选择器"></a>class选择器</h4><p>获取所有class为voidking的元素。</p>
+<p>在CSS中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.voidking&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在jQuery中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;.voidking&quot;).css(&quot;color&quot;,&quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<h4 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h4><p>获取所有标签名为div的元素。</p>
+<p>在CSS中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在jQuery中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;div&quot;).css(&quot;color&quot;,&quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<h4 id="群组选择器"><a href="#群组选择器" class="headerlink" title="群组选择器"></a>群组选择器</h4><p>获取标签名为span、em和class为voidking的所有元素。</p>
+<p>在CSS中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">span,em,.voidking&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在jQuery中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;span,em,.voidking&quot;).css(&quot;color&quot;,&quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<h4 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h4><p>获取标签名为ul下的标签名为li下的标签名为a的所有元素。</p>
+<p>在CSS中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ul li a&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在jQuery中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;ul li a&quot;).css(&quot;color&quot;,&quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;ul&quot;).find(&quot;li&quot;).find(&quot;a&quot;).css(&quot;color&quot;, &quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<h4 id="通配选择器"><a href="#通配选择器" class="headerlink" title="通配选择器"></a>通配选择器</h4><p>获取所有元素，一般不使用。</p>
+<p>在CSS中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在jQuery中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;*&quot;).css(&quot;color&quot;,&quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<h4 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h4><p>上面的六种选择器，已经可以满足大部分的选择需要。而它们还可以结合起来使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;div.voidking,ul li a&quot;).css(&quot;color&quot;,&quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<h3 id="CSS高级选择器"><a href="#CSS高级选择器" class="headerlink" title="CSS高级选择器"></a>CSS高级选择器</h3><h4 id="子选择器"><a href="#子选择器" class="headerlink" title="子选择器"></a>子选择器</h4><p>选择id为voidking的元素下，子标签为p的元素。</p>
+<p>在CSS中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#voidking &gt; p&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在jQuery中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;#voidking &gt; p&quot;).css(&quot;color&quot;,&quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;#voidking&quot;).children(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<h4 id="同级下一个选择器"><a href="#同级下一个选择器" class="headerlink" title="同级下一个选择器"></a>同级下一个选择器</h4><p>选择和id为voidking的元素同级的，下一个标签为p的元素。</p>
+<p>在CSS中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#voidking + p&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在jQuery中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;#voidking + p&quot;).css(&quot;color&quot;,&quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;#voidking&quot;).next(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<h4 id="同级所有下面选择器"><a href="#同级所有下面选择器" class="headerlink" title="同级所有下面选择器"></a>同级所有下面选择器</h4><p>选择和id为voidking的元素同级的，下面所有标签为p的元素。</p>
+<p>在CSS中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#voidking ~ p&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在jQuery中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;#voidking ~ p&quot;).css(&quot;color&quot;,&quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;#voidking&quot;).nextAll(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<h4 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h4><p>在find()、children()、next()、nextAll()四个函数中，如果不传入参数，默认为”*”。</p>
+<p>建议使用方法而不是符号，理论上讲，使用方法的效率高于使用符号，而且，使用方法更加易读易懂。</p>
+<p>接下来的选择器就没有类似于” “、”&gt;”、”+”、”~”这样的符号了，全部由函数来完成。</p>
+<h4 id="同级上一个选择器"><a href="#同级上一个选择器" class="headerlink" title="同级上一个选择器"></a>同级上一个选择器</h4><p>选择和id为voidking的元素同级的，上一个标签为p的元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;#voidking&quot;).prev(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;);</div></pre></td></tr></table></figure>
+<h4 id="同级所有上面选择器"><a href="#同级所有上面选择器" class="headerlink" title="同级所有上面选择器"></a>同级所有上面选择器</h4><p>选择和id为voidking的元素同级的，上面所有标签为p的元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;#voidking&quot;).prevAll(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<h4 id="同级上下所有选择器"><a href="#同级上下所有选择器" class="headerlink" title="同级上下所有选择器"></a>同级上下所有选择器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;#voidking&quot;).siblings(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;);</div></pre></td></tr></table></figure>
+<p>等价于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(&quot;#voidking&quot;).prevAll(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;);</div><div class="line">$(&quot;#voidking&quot;).nextAll(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<h4 id="非指定选择器"><a href="#非指定选择器" class="headerlink" title="非指定选择器"></a>非指定选择器</h4><p>同级上、下非指定元素选定，遇到则停止。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(&quot;#voidking&quot;).prevUntil(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;);</div><div class="line">$(&quot;#voidking&quot;).nextUntil(&quot;p&quot;).css(&quot;color&quot;, &quot;red&quot;);</div></pre></td></tr></table></figure></p>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><h4 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;[id=&apos;voidking&apos;]&apos;).css(&quot;color&quot;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;div[id=&apos;voidking&apos;]&apos;).css(&quot;color&quot;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+<h4 id="精确不匹配"><a href="#精确不匹配" class="headerlink" title="精确不匹配"></a>精确不匹配</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;p[class != &apos;voidking&apos;]&quot;).css(&quot;color&quot;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+<h4 id="匹配开头"><a href="#匹配开头" class="headerlink" title="匹配开头"></a>匹配开头</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;[id ^= &apos;void&apos;]&quot;).css(&quot;color&quot;,&quot;red&quot;);</div></pre></td></tr></table></figure>
+<h4 id="匹配结尾"><a href="#匹配结尾" class="headerlink" title="匹配结尾"></a>匹配结尾</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;[id $= &apos;king&apos;]&quot;).css(&quot;color&quot;,&quot;red&quot;);</div></pre></td></tr></table></figure>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><table>
+<thead>
+<tr>
+<th>CSS选择器</th>
+<th style="text-align:right">jQuery选择器</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>elem[id]</td>
+<td style="text-align:right">$(“elem[id]”)</td>
+<td style="text-align:center">选择具有id属性的元素</td>
+</tr>
+<tr>
+<td>elem[id \</td>
+<td style="text-align:right">= ‘void’]</td>
+<td style="text-align:center">$(“elem[id\</td>
+<td>= ‘void’]”)</td>
+<td>选择具有id属性，且属性值以viod开头或者属性值等于void的元素</td>
+</tr>
+<tr>
+<td>elem[class ~= ‘voidking’]</td>
+<td style="text-align:right">$(“elem[id ~= ‘voidking’]”)</td>
+<td style="text-align:center">选择具有class属性，且属性值是一个以空格分格的列表，其中包含voidking的元素</td>
+</tr>
+<tr>
+<td>elem[id *= ‘oidki’]</td>
+<td style="text-align:right">$(“elem[id *= ‘oidki’]”)</td>
+<td style="text-align:center">选择具有id属性,且属性值中包含”oidki”字串的元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="过滤选择器"><a href="#过滤选择器" class="headerlink" title="过滤选择器"></a>过滤选择器</h3><h4 id="位置选择器"><a href="#位置选择器" class="headerlink" title="位置选择器"></a>位置选择器</h4><table>
+<thead>
+<tr>
+<th>jQuery选择器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$(“li:first”)</td>
+<td>返回匹配集合的第一个元素</td>
+</tr>
+<tr>
+<td>$(“li:last”)</td>
+<td>返回匹配集合的最后一个元素</td>
+</tr>
+<tr>
+<td>$(“li:odd”)</td>
+<td>返回匹配集合的奇数成员</td>
+</tr>
+<tr>
+<td>$(“li:even”)</td>
+<td>返回匹配集合的偶数成员</td>
+</tr>
+<tr>
+<td>$(“li:eq(3)”)</td>
+<td>返回匹配集合的索引值等于3的元素（第4个元素）</td>
+</tr>
+<tr>
+<td>$(“li:not(3)”)</td>
+<td>返回匹配集合的索引值不等于3的所有元素</td>
+</tr>
+<tr>
+<td>$(“li:gt(2)”)</td>
+<td>返回匹配集合的索引值大于2的所有元素</td>
+</tr>
+<tr>
+<td>$(“li:lt(3)”)</td>
+<td>返回匹配集合的索引值小于3的所有元素</td>
+</tr>
+</tbody>
+</table>
+<h4 id="基本过滤选择器"><a href="#基本过滤选择器" class="headerlink" title="基本过滤选择器"></a>基本过滤选择器</h4><p>基本过滤选择器包括位置选择器，比位置选择器多了一些东东：<br>| 过滤器 |  描述 |<br>| ——-  | ——- |<br>| :animated |  选择当前正在执行动画的所有元素 |<br>| :header |  选择所有的标题元素，比如h1、h2、h3等 |</p>
+<h4 id="过滤表单元素"><a href="#过滤表单元素" class="headerlink" title="过滤表单元素"></a>过滤表单元素</h4><table>
+<thead>
+<tr>
+<th>过滤器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:text</td>
+<td>选择所有类型为text的元素</td>
+</tr>
+<tr>
+<td>:password</td>
+<td>选择所有类型为password的元素</td>
+</tr>
+<tr>
+<td>:radio</td>
+<td>选择所有类型为radio的元素</td>
+</tr>
+<tr>
+<td>:checkbox</td>
+<td>选择所有类型为checkbox的元素</td>
+</tr>
+<tr>
+<td>:checked</td>
+<td>匹配所有已被选中的元素</td>
+</tr>
+<tr>
+<td>:image</td>
+<td>选择所有类型为image的元素</td>
+</tr>
+<tr>
+<td>:file</td>
+<td>选择所有类型为file的元素</td>
+</tr>
+<tr>
+<td>:submit</td>
+<td>选择所有类型为submit的元素</td>
+</tr>
+<tr>
+<td>:reset</td>
+<td>选择所有类型为reset的元素</td>
+</tr>
+<tr>
+<td>:button</td>
+<td>选择所有button元素和类型为botton的元素</td>
+</tr>
+<tr>
+<td>:input</td>
+<td>选择所有input、textarea、select和button元素</td>
+</tr>
+<tr>
+<td>:selected</td>
+<td>选择所有类型已选中的元素</td>
+</tr>
+<tr>
+<td>:enabled</td>
+<td>选择所有可用元素</td>
+</tr>
+<tr>
+<td>:disabled</td>
+<td>选择所有不可用元素</td>
+</tr>
+</tbody>
+</table>
+<h4 id="可见性过滤器"><a href="#可见性过滤器" class="headerlink" title="可见性过滤器"></a>可见性过滤器</h4><table>
+<thead>
+<tr>
+<th>过滤器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:visible</td>
+<td>选择所有可见元素</td>
+</tr>
+<tr>
+<td>:hidden</td>
+<td>选择所有隐藏元素</td>
+</tr>
+</tbody>
+</table>
+<h4 id="内容过滤器"><a href="#内容过滤器" class="headerlink" title="内容过滤器"></a>内容过滤器</h4><table>
+<thead>
+<tr>
+<th>过滤器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:contains()</td>
+<td>选择所有包含特定文本内容的元素</td>
+</tr>
+<tr>
+<td>:has()</td>
+<td>选择至少含有一个元素与制定选择器匹配的元素</td>
+</tr>
+<tr>
+<td>:empty</td>
+<td>选择所有不包含子元素或文本的空元素</td>
+</tr>
+<tr>
+<td>:parent</td>
+<td>选择所有含有子元素或文本节点的元素</td>
+</tr>
+</tbody>
+</table>
+<h4 id="关系过滤器"><a href="#关系过滤器" class="headerlink" title="关系过滤器"></a>关系过滤器</h4><table>
+<thead>
+<tr>
+<th>过滤器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:first-child</td>
+<td>选择每个父元素的第一个子元素</td>
+</tr>
+<tr>
+<td>:last-child</td>
+<td>选择每个父元素的最后一个子元素</td>
+</tr>
+<tr>
+<td>:nth-child</td>
+<td>选择每个父元素的第nth-child()个子元素</td>
+</tr>
+<tr>
+<td>:only-child</td>
+<td>选择具有唯一一个子元素的元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="自定义选择器"><a href="#自定义选择器" class="headerlink" title="自定义选择器"></a>自定义选择器</h3><p>有些时候，jQuery提供的选择器不够用，我们就需要自己创建选择器。比如，我们需要选择具有绿色背景的元素：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>	</div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"jquery-1.10.2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">		$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="comment">//通过扩展$.expr[":"]实现自定义选择器</span></div><div class="line">			$.expr[<span class="string">":"</span>].greenbg = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</div><div class="line">				<span class="keyword">return</span> $(element).css(<span class="string">"background-color"</span>) === <span class="string">"green"</span>;</div><div class="line">			&#125;;	</div><div class="line">			<span class="comment">//此处兼容性问题。输出在Firefox和IE中有所不同，Firefox值为0，IE值为1。</span></div><div class="line">			alert($(<span class="string">":greenbg"</span>).length);</div><div class="line">			$(<span class="string">":greenbg"</span>).text(<span class="string">"hello voidking"</span>);</div><div class="line">		&#125;);</div><div class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width:200 ; height:200 ; background-color:green;"</span> &gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width:200 ; height:200 ; background-color:red;"</span> &gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>我靠，选择器这块实在是太难搞了！一天一夜才完成这份总结。内容纯手打，代码测试通过！</p>
+<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><p>李炎恢的jQuery视频教程<br>《jQuery攻略（作者B.M.Harwani）》<br>《jQuery实战（作者Bear Bibeault、Yehuda Katz）》<br>《jQuery高级编程（作者 Cesar Otero、Rob Larsen）》<br>《jQuery Javascript 与CSS开发入门经典（作者Richard York）》</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/15/jQuery学习笔记——概述篇/" rel="next" title="jQuery学习笔记——概述篇">
+                <i class="fa fa-chevron-left"></i> jQuery学习笔记——概述篇
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/15/jQuery书签/" rel="prev" title="jQuery书签">
+                jQuery书签 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="柳玉美" />
+          <p class="site-author-name" itemprop="name">柳玉美</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器语法"><span class="nav-number">1.</span> <span class="nav-text">选择器语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS基本选择器"><span class="nav-number">2.</span> <span class="nav-text">CSS基本选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#id选择器"><span class="nav-number">2.1.</span> <span class="nav-text">id选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class选择器"><span class="nav-number">2.2.</span> <span class="nav-text">class选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标签选择器"><span class="nav-number">2.3.</span> <span class="nav-text">标签选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#群组选择器"><span class="nav-number">2.4.</span> <span class="nav-text">群组选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后代选择器"><span class="nav-number">2.5.</span> <span class="nav-text">后代选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通配选择器"><span class="nav-number">2.6.</span> <span class="nav-text">通配选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合"><span class="nav-number">2.7.</span> <span class="nav-text">组合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS高级选择器"><span class="nav-number">3.</span> <span class="nav-text">CSS高级选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#子选择器"><span class="nav-number">3.1.</span> <span class="nav-text">子选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同级下一个选择器"><span class="nav-number">3.2.</span> <span class="nav-text">同级下一个选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同级所有下面选择器"><span class="nav-number">3.3.</span> <span class="nav-text">同级所有下面选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PS"><span class="nav-number">3.4.</span> <span class="nav-text">PS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同级上一个选择器"><span class="nav-number">3.5.</span> <span class="nav-text">同级上一个选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同级所有上面选择器"><span class="nav-number">3.6.</span> <span class="nav-text">同级所有上面选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同级上下所有选择器"><span class="nav-number">3.7.</span> <span class="nav-text">同级上下所有选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非指定选择器"><span class="nav-number">3.8.</span> <span class="nav-text">非指定选择器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性选择器"><span class="nav-number">4.</span> <span class="nav-text">属性选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#精确匹配"><span class="nav-number">4.1.</span> <span class="nav-text">精确匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#精确不匹配"><span class="nav-number">4.2.</span> <span class="nav-text">精确不匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配开头"><span class="nav-number">4.3.</span> <span class="nav-text">匹配开头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配结尾"><span class="nav-number">4.4.</span> <span class="nav-text">匹配结尾</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他"><span class="nav-number">4.5.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤选择器"><span class="nav-number">5.</span> <span class="nav-text">过滤选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#位置选择器"><span class="nav-number">5.1.</span> <span class="nav-text">位置选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本过滤选择器"><span class="nav-number">5.2.</span> <span class="nav-text">基本过滤选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#过滤表单元素"><span class="nav-number">5.3.</span> <span class="nav-text">过滤表单元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可见性过滤器"><span class="nav-number">5.4.</span> <span class="nav-text">可见性过滤器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内容过滤器"><span class="nav-number">5.5.</span> <span class="nav-text">内容过滤器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关系过滤器"><span class="nav-number">5.6.</span> <span class="nav-text">关系过滤器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义选择器"><span class="nav-number">6.</span> <span class="nav-text">自定义选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结束语"><span class="nav-number">7.</span> <span class="nav-text">结束语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文档"><span class="nav-number">8.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柳玉美</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

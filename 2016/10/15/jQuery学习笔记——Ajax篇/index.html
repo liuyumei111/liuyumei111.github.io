@@ -1,0 +1,725 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,jQuery," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content=".jpg)
+显示欢迎信息Ajax的优点我们已经说过了，上个例子先！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery学习笔记——Ajax篇">
+<meta property="og:url" content="http://yoursite.com/2016/10/15/jQuery学习笔记——Ajax篇/index.html">
+<meta property="og:site_name" content="web技术博客">
+<meta property="og:description" content=".jpg)
+显示欢迎信息Ajax的优点我们已经说过了，上个例子先！">
+<meta property="og:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(36">
+<meta property="og:updated_time" content="2017-03-28T07:42:35.908Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery学习笔记——Ajax篇">
+<meta name="twitter:description" content=".jpg)
+显示欢迎信息Ajax的优点我们已经说过了，上个例子先！">
+<meta name="twitter:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(36">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/15/jQuery学习笔记——Ajax篇/"/>
+
+
+
+
+
+  <title> jQuery学习笔记——Ajax篇 | web技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">web技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/15/jQuery学习笔记——Ajax篇/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="柳玉美">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="web技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jQuery学习笔记——Ajax篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-15T20:10:14+08:00">
+                2016-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计开发/" itemprop="url" rel="index">
+                    <span itemprop="name">设计开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://github.com/yutaiwei/blog/blob/master/photo/1%20(36" alt="">.jpg)</p>
+<h3 id="显示欢迎信息"><a href="#显示欢迎信息" class="headerlink" title="显示欢迎信息"></a>显示欢迎信息</h3><p>Ajax的优点我们已经说过了，上个例子先！<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">&lt;!--显示欢迎信息.html--&gt;</div><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">	&lt;title&gt;显示欢迎信息&lt;/title&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.11.1.js&quot;&gt;&lt;/script&gt;</div><div class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">		$(function()&#123;</div><div class="line">			$(&quot;#submit&quot;).click(function()&#123;</div><div class="line">				var name = $(&quot;.uname&quot;).val();</div><div class="line">				var data = &quot;uname=&quot; + name;</div><div class="line">				$.ajax(&#123;</div><div class="line">					type:&quot;POST&quot;,</div><div class="line">					url:&quot;http://demo.voidking.com/welcome.php&quot;,</div><div class="line">					data:data,</div><div class="line">					success: function(html)&#123;</div><div class="line">						$(&quot;#message&quot;).html(html);</div><div class="line">					&#125;</div><div class="line">				&#125;);</div><div class="line">				return false;</div><div class="line">			&#125;);</div><div class="line">		&#125;);</div><div class="line">	&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;form&gt;</div><div class="line">			&lt;label&gt;Enter your name&lt;/label&gt;</div><div class="line">			&lt;input type=&quot;text&quot; name=&quot;uname&quot; class=&quot;uname&quot; /&gt;&lt;br/&gt;</div><div class="line">			&lt;input type=&quot;submit&quot; id=&quot;submit&quot;/&gt;</div><div class="line">		&lt;/form&gt;</div><div class="line">		&lt;div id=&quot;message&quot;&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;!--welcome.php--&gt;</div><div class="line">&lt;?php</div><div class="line">	$name = $_POST[&apos;uname&apos;];</div><div class="line">	echo &quot;welcome &quot;.$name;</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<p>把ajax实例01.html、welcome.php、jquery-1.11.1.js上传到自己的服务器。打开浏览器访问“显示欢迎信息.html”，输入一个名字，就能看到效果了。</p>
+<p>为什么要上传服务器，搞的这么麻烦？大哥，ajax主要就是用来和服务器交互的好不好？如果你觉得麻烦，可以直接访问我的服务器查看效果:<a href="http://demo.voidking.com" target="_blank" rel="external">VoidKing编程实例</a>，接下来的例子也可以在这个网页找到。</p>
+<p>当然，你也可以直接本地打开“显示欢迎信息.html”，但是提交数据没有反应，因为同源策略限制交互。怎么破？简单点，本地搭建一个php服务器！高大上点，自行百度，修改代码！</p>
+<h3 id="执行认证"><a href="#执行认证" class="headerlink" title="执行认证"></a>执行认证</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">        &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;</div><div class="line">        &lt;title&gt;ajax实例02&lt;/title&gt;</div><div class="line">        &lt;script src=&quot;jquery-1.11.1.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;  </div><div class="line">        &lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">			$(function() &#123;   </div><div class="line">				$(&apos;#submit&apos;).click(function () &#123;           </div><div class="line">					var name = $(&apos;.uname&apos;).val();		</div><div class="line">					var pwd = $(&apos;.passwd&apos;).val();	</div><div class="line">					var data=&apos;uname=&apos;+name+&apos;&amp;password=&apos;+pwd;</div><div class="line">					$.ajax(&#123;</div><div class="line">						type:&quot;GET&quot;,</div><div class="line">						url:&quot;logincheck.php&quot;, </div><div class="line">						data:data,             </div><div class="line">						success:function(html) &#123;			</div><div class="line">							$(&quot;#message&quot;).html(html);		</div><div class="line">						&#125;</div><div class="line">					&#125;);		</div><div class="line">					return false;	</div><div class="line">				&#125;);</div><div class="line">			&#125;);</div><div class="line">		&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;p&gt;用户名输入guest，密码输入jquery，会出现欢迎信息，否则显示未注册&lt;/p&gt;&lt;br/&gt;</div><div class="line">		&lt;form&gt;  </div><div class="line">		&lt;label&gt;Enter your Name&lt;/label&gt;  </div><div class="line">		&lt;input type=&quot;text&quot;  name=&quot;uname&quot; class=&quot;uname&quot;/&gt;  &lt;br/&gt;</div><div class="line">		&lt;label&gt;Enter your Password&lt;/label&gt;  </div><div class="line">		&lt;input type=&quot;password&quot;  name=&quot;password&quot; class=&quot;passwd&quot;/&gt;  &lt;br/&gt;</div><div class="line">		&lt;input type=&quot;submit&quot; id=&quot;submit&quot;/&gt;  </div><div class="line">		&lt;/form&gt;  </div><div class="line">		&lt;div id=&quot;message&quot;&gt;&lt;/div&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!--logincheck.php--&gt;</div><div class="line">&lt;?php   </div><div class="line">$name = trim($_GET[&apos;uname&apos;]); </div><div class="line">$pswd = trim($_GET[&apos;password&apos;]);    </div><div class="line">if(($name==&quot;guest&quot;) &amp;&amp; ($pswd==&quot;jquery&quot;))</div><div class="line">  echo &quot;Welcome &quot;.  $name;</div><div class="line">else</div><div class="line">  echo &quot;Sorry you are not authorized&quot;;</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<h3 id="验证用户名"><a href="#验证用户名" class="headerlink" title="验证用户名"></a>验证用户名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">		&lt;title&gt;验证用户名&lt;/title&gt;</div><div class="line">		&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.11.1.js&quot;&gt;&lt;/script&gt;</div><div class="line">		&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">			$(function() &#123;   </div><div class="line">				$(&apos;.error&apos;).hide();</div><div class="line">				$(&apos;#submit&apos;).click(function () &#123;           </div><div class="line">					var name = $(&apos;.uname&apos;).val();		</div><div class="line">					var data=&apos;uname=&apos;+name;</div><div class="line">					$.ajax(&#123;</div><div class="line">						type:&quot;POST&quot;,</div><div class="line">						url:&quot;validateuser.php&quot;, </div><div class="line">						data:data,             </div><div class="line">						success:function(html) &#123;</div><div class="line">							$(&apos;.error&apos;).show();		</div><div class="line">							$(&apos;.error&apos;).text(html);				</div><div class="line">						&#125;</div><div class="line">					&#125;);		</div><div class="line">					return false;	</div><div class="line">				&#125;);</div><div class="line">			&#125;);</div><div class="line">		&lt;/script&gt;</div><div class="line">		&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;p&gt;验证用户名，只能是数字、字母和下划线&lt;/p&gt;&lt;br/&gt;</div><div class="line">		&lt;form&gt;  </div><div class="line">			&lt;span class=&quot;label&quot;&gt;Enter your Name&lt;/span&gt;  </div><div class="line">			&lt;input type=&quot;text&quot;  name=&quot;uname&quot; class=&quot;uname&quot;/&gt;  &lt;span class=&quot;error&quot;&gt; &lt;/span&gt;&lt;br&gt;</div><div class="line">			&lt;input type=&quot;submit&quot; id=&quot;submit&quot;/&gt;  </div><div class="line">		&lt;/form&gt;  </div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!--validateuser.php--&gt;</div><div class="line">&lt;?php   </div><div class="line">$name = $_POST[&apos;uname&apos;]; </div><div class="line">if (!eregi(&quot;^[a-zA-Z0-9_]+$&quot;, $name)) </div><div class="line">&#123;</div><div class="line">	echo &quot;Invalid User name!&quot;;</div><div class="line">&#125;</div><div class="line">else</div><div class="line">&#123;</div><div class="line">	echo &quot;Great user name!&quot;;</div><div class="line">&#125;</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<h3 id="使用自动完成"><a href="#使用自动完成" class="headerlink" title="使用自动完成"></a>使用自动完成</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">		&lt;title&gt;使用自动完成&lt;/title&gt;</div><div class="line">		</div><div class="line">		&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">			.listbox &#123;</div><div class="line">				position: relative;</div><div class="line">				left: 10px;</div><div class="line">				margin: 10px;</div><div class="line">				width: 200px;</div><div class="line">				background-color: #000;</div><div class="line">				color: #fff;</div><div class="line">				border: 2px solid #000;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			.nameslist &#123;</div><div class="line">				margin: 0px;</div><div class="line">				padding: 0px;</div><div class="line">			list-style:none;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			.hover &#123;</div><div class="line">				background-color: cyan;</div><div class="line">				color: blue;</div><div class="line">			&#125;</div><div class="line">		&lt;/style&gt;</div><div class="line">		</div><div class="line">		&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.11.1.js&quot;&gt;&lt;/script&gt;</div><div class="line">		&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">			$(function() &#123;  </div><div class="line">				$(&apos;.listbox&apos;).hide(); </div><div class="line">				$(&apos;.userid&apos;).keyup(function () &#123;       </div><div class="line">					var uid = $(&apos;.userid&apos;).val();	</div><div class="line">					var data=&apos;userid=&apos;+uid;</div><div class="line">					$.ajax(&#123;</div><div class="line">						type:&quot;POST&quot;,</div><div class="line">						url:&quot;autocomplete.php&quot;, </div><div class="line">						data:data,             </div><div class="line">						success:function(html) &#123;</div><div class="line">							$(&apos;.listbox&apos;).show();</div><div class="line">							$(&apos;.nameslist&apos;).html(html);</div><div class="line">							$(&apos;li&apos;).hover(function()&#123;</div><div class="line">								$(this).addClass(&apos;hover&apos;);</div><div class="line">							&#125;,</div><div class="line">							function()&#123;</div><div class="line">								$(this).removeClass(&apos;hover&apos;);</div><div class="line">							&#125;);</div><div class="line">							$(&apos;li&apos;).click(function()&#123;</div><div class="line">								$(&apos;.userid&apos;).val($(this).text());</div><div class="line">								$(&apos;.listbox&apos;).hide(); </div><div class="line">							&#125;);</div><div class="line">						&#125;</div><div class="line">					&#125;);		</div><div class="line">				return false;	</div><div class="line">				&#125;);</div><div class="line">			&#125;);</div><div class="line">		&lt;/script&gt;</div><div class="line">		&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;p&gt;输入名字的第一个字符时，弹出建议框。&lt;/p&gt;&lt;br/&gt;</div><div class="line">		&lt;form&gt;  </div><div class="line">			&lt;span class=&quot;label&quot;&gt;Enter user id&lt;/span&gt;  </div><div class="line">			&lt;input type=&quot;text&quot;  name=&quot;userid&quot; class=&quot;userid&quot;/&gt; </div><div class="line">			&lt;div class=&quot;listbox&quot;&gt;</div><div class="line">				&lt;div class=&quot;nameslist&quot;&gt;</div><div class="line">				&lt;/div&gt;</div><div class="line">			&lt;/div&gt;</div><div class="line">		&lt;/form&gt;   </div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?php   </div><div class="line">	$name = $_POST[&apos;userid&apos;]; </div><div class="line">	$connect = mysql_connect(&quot;localhost&quot;, &quot;demo&quot;, &quot;voidking&quot;) or die(&quot;Please, check your server connection.&quot;);</div><div class="line">	mysql_select_db(&quot;demo&quot;);</div><div class="line">	$query = &quot;SELECT name from user where name like &apos;$name%&apos;&quot;;</div><div class="line">	$results = mysql_query($query) or die(mysql_error());</div><div class="line">	if($results)</div><div class="line">	&#123;</div><div class="line">		while ($row = mysql_fetch_array($results)) &#123;</div><div class="line">			extract($row);</div><div class="line">			echo &apos;&lt;li&gt;&apos; . $name. &apos;&lt;/li&gt;&apos;;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<h3 id="导入HTML"><a href="#导入HTML" class="headerlink" title="导入HTML"></a>导入HTML</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;!--导入HTML--&gt;</div><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">		&lt;title&gt;导入HTML&lt;/title&gt;</div><div class="line">		&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.11.1.js&quot;&gt;&lt;/script&gt;</div><div class="line">		&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">			$(function() &#123;   </div><div class="line">				$(&apos;.list&apos;).click(function () &#123;           </div><div class="line">					$(&apos;#message&apos;).load(&apos;namesinfo.html&apos;);</div><div class="line">					return false;   </div><div class="line">				&#125;);</div><div class="line">			&#125;);</div><div class="line">		&lt;/script&gt;</div><div class="line">		&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;p&gt;单击超链接，从另一个文件中导入一些HTML内容到当前网页中。&lt;/p&gt;&lt;br/&gt;</div><div class="line">		&lt;p&gt;We are going to organize the Conference on IT on 2nd Feb 2010&lt;/p&gt;</div><div class="line">		&lt;a href=&quot;http://demo.voidking.com&quot; class=&quot;list&quot;&gt;Participants&lt;/a&gt;</div><div class="line">		&lt;div id=&quot;message&quot;&gt;&lt;/div&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!--namesinfo.html--&gt;</div><div class="line">&lt;p&gt;The list of the persons taking part in conference &lt;/p&gt;</div><div class="line">&lt;ul&gt;</div><div class="line">&lt;li&gt;Jackub&lt;/li&gt;</div><div class="line">&lt;li&gt;Jenny&lt;/li&gt;</div><div class="line">&lt;li&gt;Jill&lt;/li&gt;</div><div class="line">&lt;li&gt;John&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">&lt;p&gt;We wish them All the Best&lt;/p&gt;</div></pre></td></tr></table></figure>
+<h3 id="取得JSON数据"><a href="#取得JSON数据" class="headerlink" title="取得JSON数据"></a>取得JSON数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">&lt;!--取得JSON数据--&gt;</div><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">		&lt;title&gt;取得JSON数据&lt;/title&gt;</div><div class="line">		&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.11.1.js&quot;&gt;&lt;/script&gt;</div><div class="line">		&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">			$(function() &#123;   </div><div class="line">				$(&apos;#submit&apos;).click(function () &#123;      </div><div class="line">					$.ajax(&#123;</div><div class="line">						type:&quot;GET&quot;,</div><div class="line">						url:&quot;drinkinfo.json&quot;,    </div><div class="line">						dataType:&quot;json&quot;,</div><div class="line">						success: function (data) &#123;   </div><div class="line">							var drinks=&quot;&lt;ul&gt;&quot;;</div><div class="line">							$.each(data, function(i,n)&#123;</div><div class="line">								drinks+=&quot;&lt;li&gt;&quot;+n[&quot;optiontext&quot;]+&quot;&lt;/li&gt;&quot;;</div><div class="line">							&#125;);</div><div class="line">							drinks+=&quot;&lt;/ul&gt;&quot;;              </div><div class="line">							$(&apos;#message&apos;).append(drinks);	</div><div class="line">						&#125;</div><div class="line">					&#125;);   </div><div class="line">					return false;	</div><div class="line">				&#125;);		</div><div class="line">			&#125;);</div><div class="line">		&lt;/script&gt;</div><div class="line">		&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;p&gt;从JSON文件中异步地导入信息到当前的网页中。&lt;/p&gt;&lt;br/&gt;</div><div class="line">		&lt;p&gt;For information from JSON file click the button given below :&lt;br&gt;</div><div class="line">		&lt;input type=&quot;submit&quot; id=&quot;submit&quot;/&gt;  </div><div class="line">		&lt;div id=&quot;message&quot;&gt;&lt;/div&gt;  </div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>drinkinfo.json文件内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">	&#123;&quot;optiontext&quot; : &quot;Tea&quot;, &quot;optionvalue&quot; : &quot;Tea&quot;&#125;,</div><div class="line">	&#123;&quot;optiontext&quot; : &quot;Coffee&quot;, &quot;optionvalue&quot; : &quot;Coffee&quot;&#125;,</div><div class="line">	&#123;&quot;optiontext&quot; : &quot;Juice&quot;, &quot;optionvalue&quot; : &quot;Juice&quot;&#125;</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>矮油我靠，在服务器上打开浏览器，读取正常；在本地打开浏览器，居然无法读取，404错误！</p>
+<p>经过测试，只要把文件名更改一下就好了。即把drinkinfo.json改成drinkinfo.txt。真是个奇葩问题，个人猜测是浏览器传输文件有格式限制。</p>
+<h3 id="取得XML数据"><a href="#取得XML数据" class="headerlink" title="取得XML数据"></a>取得XML数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">		&lt;title&gt;取得XML数据&lt;/title&gt;</div><div class="line">		&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.11.1.js&quot;&gt;&lt;/script&gt;</div><div class="line">		&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">			$(document).ready(function() &#123;   </div><div class="line">				$(&apos;#submit&apos;).click(function () &#123;      </div><div class="line">					$.ajax(&#123;</div><div class="line">						type:&quot;GET&quot;,</div><div class="line">						url:&quot;student.xml&quot;,    </div><div class="line">						dataType:&quot;xml&quot;,</div><div class="line">						success: function (sturec) &#123;    </div><div class="line">							var stud=&quot;&lt;ul&gt;&quot;;</div><div class="line">							$(sturec).find(&apos;student&apos;).each(function()&#123;</div><div class="line">								var name = $(this).find(&apos;first-name&apos;).text()</div><div class="line">								stud+=&quot;&lt;li&gt;&quot;+name+&quot;&lt;/li&gt;&quot;;</div><div class="line">							&#125;);</div><div class="line">							stud+=&quot;&lt;/ul&gt;&quot;; </div><div class="line">							$(&apos;#message&apos;).append(stud);</div><div class="line">						&#125;</div><div class="line">					&#125;);   </div><div class="line">					return false;	</div><div class="line">				&#125;);		</div><div class="line">			&#125;);</div><div class="line">		&lt;/script&gt;</div><div class="line">		&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;p&gt;从student.xml文件中异步导入信息到当前的网页中。&lt;/p&gt;&lt;br/&gt;</div><div class="line">		&lt;p&gt;To see the Names of the students extracted from XML file click the button given below :&lt;/p&gt;</div><div class="line">		&lt;input type=&quot;submit&quot; id=&quot;submit&quot;/&gt;  </div><div class="line">		&lt;div id=&quot;message&quot;&gt;&lt;/div&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>student.xml文件内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</div><div class="line">&lt;school&gt;</div><div class="line">  &lt;student&gt;</div><div class="line">    &lt;roll&gt;101&lt;/roll&gt;</div><div class="line">    &lt;name&gt;</div><div class="line">      &lt;first-name&gt;Anil&lt;/first-name&gt;</div><div class="line">      &lt;last-name&gt;Sharma&lt;/last-name&gt;</div><div class="line">    &lt;/name&gt;</div><div class="line">    &lt;address&gt;</div><div class="line">      &lt;street&gt;</div><div class="line">        22/10 Sri Nagar Road</div><div class="line">      &lt;/street&gt;</div><div class="line">      &lt;city&gt;</div><div class="line">        Ajmer</div><div class="line">      &lt;/city&gt;</div><div class="line">      &lt;state&gt;</div><div class="line">        Rajasthan</div><div class="line">      &lt;/state&gt;</div><div class="line">    &lt;/address&gt;</div><div class="line">    &lt;marks&gt;</div><div class="line">      85</div><div class="line">    &lt;/marks&gt;</div><div class="line">   &lt;/student&gt;</div><div class="line">    &lt;student&gt;</div><div class="line">    &lt;roll&gt;102&lt;/roll&gt;</div><div class="line">    &lt;name&gt;</div><div class="line">      &lt;first-name&gt;Manoj&lt;/first-name&gt;</div><div class="line">      &lt;last-name&gt;Arora&lt;/last-name&gt;</div><div class="line">    &lt;/name&gt;</div><div class="line">    &lt;address&gt;</div><div class="line">      &lt;street&gt;</div><div class="line">        H.No 11-B Alwar Gate</div><div class="line">      &lt;/street&gt;</div><div class="line">      &lt;city&gt;</div><div class="line">        Ajmer</div><div class="line">      &lt;/city&gt;</div><div class="line">      &lt;state&gt;</div><div class="line">        Rajasthan</div><div class="line">      &lt;/state&gt;</div><div class="line">    &lt;/address&gt;</div><div class="line">    &lt;marks&gt;</div><div class="line">      92</div><div class="line">    &lt;/marks&gt;</div><div class="line">  &lt;/student&gt;</div><div class="line">&lt;/school&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>以上例子，全部摘自《jQuery攻略》，不详解，看代码！</p>
+<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><p>李炎恢的jQuery视频教程<br>《jQuery攻略（作者B.M.Harwani）》<br>《jQuery实战（作者Bear Bibeault、Yehuda Katz）》<br>《jQuery高级编程（作者 Cesar Otero、Rob Larsen）》<br>《jQuery Javascript 与CSS开发入门经典（作者Richard York）》</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/15/jQuery学习笔记——事件篇/" rel="next" title="jQuery学习笔记——事件篇">
+                <i class="fa fa-chevron-left"></i> jQuery学习笔记——事件篇
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/19/你总会信仰些什么/" rel="prev" title="你总会信仰些什么">
+                你总会信仰些什么 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="柳玉美" />
+          <p class="site-author-name" itemprop="name">柳玉美</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#显示欢迎信息"><span class="nav-number">1.</span> <span class="nav-text">显示欢迎信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行认证"><span class="nav-number">2.</span> <span class="nav-text">执行认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证用户名"><span class="nav-number">3.</span> <span class="nav-text">验证用户名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用自动完成"><span class="nav-number">4.</span> <span class="nav-text">使用自动完成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入HTML"><span class="nav-number">5.</span> <span class="nav-text">导入HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取得JSON数据"><span class="nav-number">6.</span> <span class="nav-text">取得JSON数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取得XML数据"><span class="nav-number">7.</span> <span class="nav-text">取得XML数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结束语"><span class="nav-number">8.</span> <span class="nav-text">结束语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文档"><span class="nav-number">9.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柳玉美</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

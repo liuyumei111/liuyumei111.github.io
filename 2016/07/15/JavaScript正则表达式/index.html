@@ -1,0 +1,752 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端,JavaScript,正则表达式," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content=".jpg)
+前言正则表达式（Regular Expression）主要是用来描述一个句法规则的模式。其实说的通俗一点，就是利用字符和元字符的组合，对一些符合既定句法的模式进行模糊匹配。它的主要功能是文本查询和字符串操作。本文讨论一下JavaScript中的正则表达式用法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript正则表达式">
+<meta property="og:url" content="http://yoursite.com/2016/07/15/JavaScript正则表达式/index.html">
+<meta property="og:site_name" content="web技术博客">
+<meta property="og:description" content=".jpg)
+前言正则表达式（Regular Expression）主要是用来描述一个句法规则的模式。其实说的通俗一点，就是利用字符和元字符的组合，对一些符合既定句法的模式进行模糊匹配。它的主要功能是文本查询和字符串操作。本文讨论一下JavaScript中的正则表达式用法。">
+<meta property="og:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(16">
+<meta property="og:updated_time" content="2017-03-28T07:12:43.914Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript正则表达式">
+<meta name="twitter:description" content=".jpg)
+前言正则表达式（Regular Expression）主要是用来描述一个句法规则的模式。其实说的通俗一点，就是利用字符和元字符的组合，对一些符合既定句法的模式进行模糊匹配。它的主要功能是文本查询和字符串操作。本文讨论一下JavaScript中的正则表达式用法。">
+<meta name="twitter:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(16">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/15/JavaScript正则表达式/"/>
+
+
+
+
+
+  <title> JavaScript正则表达式 | web技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">web技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/15/JavaScript正则表达式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="柳玉美">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="web技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript正则表达式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-15T12:37:03+08:00">
+                2016-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计开发/" itemprop="url" rel="index">
+                    <span itemprop="name">设计开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://github.com/yutaiwei/blog/blob/master/photo/1%20(16" alt="">.jpg)</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>正则表达式（Regular Expression）主要是用来描述一个句法规则的模式。其实说的通俗一点，就是利用字符和元字符的组合，对一些符合既定句法的模式进行模糊匹配。它的主要功能是文本查询和字符串操作。本文讨论一下JavaScript中的正则表达式用法。</p>
+<a id="more"></a>
+<h1 id="定义正则表达式"><a href="#定义正则表达式" class="headerlink" title="定义正则表达式"></a>定义正则表达式</h1><p>1、定义正则表达式有两种形式，一种是普通方式，一种是构造函数方式。<br>2、普通方式：var reg=/表达式/附加参数<br>表达式：一个字符串，代表了某种规则，其中可以使用某些特殊字符，来代表特殊的规则，后面会详细说明。<br>附加参数：用来扩展表达式的含义，目前主要有三个参数：<br>g：代表可以进行全局匹配。<br>i：代表不区分大小写匹配。<br>m：代表可以进行多行匹配。<br>上面三个参数，可以任意组合，代表复合含义，当然也可以不加参数。<br>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var reg=/a*b/;</div><div class="line">var reg=/abc+f/g;</div></pre></td></tr></table></figure></p>
+<p>3、构造函数方式：var reg=new RegExp(“表达式”,”附加参数”);<br>其中“表达式”与“附加参数”的含义与上面那种定义方式中的含义相同。<br>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var reg=new RegExp(&quot;a*b&quot;);</div><div class="line">var reg=new RegExp(&quot;abc+f&quot;,&quot;g&quot;);</div></pre></td></tr></table></figure></p>
+<p>4、普通方式与构造函数方式的区别<br>普通方式中的表达式必须是一个常量字符串，而构造函数中的表达式可以是常量字符串，也可以是一个js变量，例如根据用户的输入来作为表达式参数等等：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var reg=new RegExp(document.forms[0].exprfiled.value,&quot;g&quot;);</div></pre></td></tr></table></figure></p>
+<h1 id="表达式模式"><a href="#表达式模式" class="headerlink" title="表达式模式"></a>表达式模式</h1><p>1、表达式模式，是指表达式的表达方式与样式， 即 var reg=/表达式/附加参数 中的“表达式”怎样去描述？<br>2、从规范上讲，表达式模式分为简单模式和复合模式。<br>3、简单模式：是指通过普通字符的组合来表达的模式，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var reg=/abc0d/;</div></pre></td></tr></table></figure></p>
+<p>可见简单模式只能表示具体的匹配。<br>4、复合模式：是指含有通配符来表达的模式，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var reg=/a+b?\w/;</div></pre></td></tr></table></figure></p>
+<p>其中的+、?和\w都属于通配符，代表着特殊的含义。因此复合模式可以表达更为抽象化的逻辑。<br>复合模式中各个通配符的含义及其使用请阅读下文给出的参考文档。</p>
+<h1 id="表达式操作"><a href="#表达式操作" class="headerlink" title="表达式操作"></a>表达式操作</h1><p>1、表达式操作，在这里是指和表达式相关的方法，我们将介绍六个方法。<br>2、表达式对象（RegExp）方法：</p>
+<p>（1）exec(str)，返回str中与表达式相匹配的第一个字符串，而且以数组的形式表现，当然如果表达式中含有捕捉用的小括号，则返回的数组中也可能含有()中的匹配字符串，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var regx=/\d+/;</div><div class="line">var rs=regx.exec(&quot;3432ddf53&quot;);</div></pre></td></tr></table></figure></p>
+<p>返回的rs值为：{3432}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var regx2=new RegExp(&quot;ab(\d+)c&quot;);</div><div class="line">var rs2=regx2.exec(&quot;ab234c44&quot;);</div></pre></td></tr></table></figure></p>
+<p>返回的rs2值为：{ab234c,234}<br>另外，如果有多个合适的匹配，则第一次执行exec返回一个第一个匹配，此时继续执行exec，则依次返回第二个第三个匹配。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var regx=/user\d/g;</div><div class="line">var rs=regx.exec(&quot;ddduser1dsfuser2dd&quot;);</div><div class="line">var rs1=regx.exec(&quot;ddduser1dsfuser2dd&quot;);</div></pre></td></tr></table></figure></p>
+<p>则rs的值为{user1}，rs1的值为{user2}，当然注意regx中的g参数是必须的，否则无论exec执行多少次，都返回第一个匹配。后面还有相关内容涉及到对此想象的解释。</p>
+<p>（2）test(str)，判断字符串str是否匹配表达式，返回一个布尔值。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var regx=/user\d+/g;</div><div class="line">var flag=regx.test(&quot;user12dd&quot;);</div></pre></td></tr></table></figure></p>
+<p>flag的值为true。</p>
+<p>3、String对象方法</p>
+<p>（1）match(expr)，返回与expr相匹配的一个字符串数组，如果没有加参数g，则返回第一个匹配，加入参数g则返回所有的匹配<br>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var regx=/user\d/g;</div><div class="line">var str=&quot;user13userddduser345&quot;;</div><div class="line">var rs=str.match(regx);</div></pre></td></tr></table></figure></p>
+<p>rs的值为：{user1,user3}</p>
+<p>（2）search(expr)，返回字符串中与expr相匹配的第一个匹配的index值。<br>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var regx=/user\d/g;</div><div class="line">var str=&quot;user13userddduser345&quot;;</div><div class="line">var rs=str.search(regx);</div></pre></td></tr></table></figure></p>
+<p>rs的值为：0</p>
+<p>（3）replace(expr,str)，将字符串中匹配expr的部分替换为str。另外在replace方法中，str中可以含有一种变量符号$，格式为$n，代表匹配中被记住的第n的匹配字符串（注意小括号可以记忆匹配）。<br>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var regx=/user\d/g;</div><div class="line">var str=&quot;user13userddduser345&quot;;</div><div class="line">var rs=str.replace(regx,&quot;00&quot;);</div></pre></td></tr></table></figure></p>
+<p>rs的值为：003userddd0045<br>例子2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var regx=/u(se)r\d/g;</div><div class="line">var str=&quot;user13userddduser345&quot;;</div><div class="line">var rs=str.replace(regx,&quot;$1&quot;);</div></pre></td></tr></table></figure></p>
+<p>rs的值为：se3userdddse45<br>对于replace(expr,str)方法还要特别注意一点，如果expr是一个表达式对象则会进行全局替换（此时表达式必须附加参数g，否则也只是替换第一个匹配），如果expr是一个字符串对象，则只会替换第一个匹配的部分，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var regx=&quot;user&quot;</div><div class="line">var str=&quot;user13userddduser345&quot;;</div><div class="line">var rs=str.replace(regx,&quot;00&quot;);</div></pre></td></tr></table></figure></p>
+<p>rs的值为： 0013userddduser345</p>
+<p>（4）split(expr)，将字符串以匹配expr的部分做分割，返回一个数组，而且表达式是否附加参数g都没有关系，结果是一样的。<br>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var regx=/user\d/g;</div><div class="line">var str=&quot;user13userddduser345&quot;;</div><div class="line">var rs=str.split(regx);</div></pre></td></tr></table></figure></p>
+<p>rs的值为：{3userddd,45}</p>
+<h1 id="表达式相关属性"><a href="#表达式相关属性" class="headerlink" title="表达式相关属性"></a>表达式相关属性</h1><p>1、表达式相关属性，是指和表达式相关的属性，如下面的形式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var regx=/myexpr/;</div><div class="line">var rs=regx.exec(str);</div></pre></td></tr></table></figure></p>
+<p>其中，和表达式自身regx相关的属性有两个，和表达式匹配结果rs相关的属性有三个，下面将逐一介绍。<br>2、和表达式自身相关的两个属性：</p>
+<p>（1）lastIndex，返回开始下一个匹配的位置，注意必须是全局匹配（表达式中带有g参数）时，lastIndex才会有不断返回下一个匹配值，否则该值为总是返回第一个下一个匹配位置，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var regx=/user\d/;</div><div class="line">var rs=regx.exec(&quot;sdsfuser1dfsfuser2&quot;);</div><div class="line">var lastIndex1=regx.lastIndex;</div><div class="line">rs=regx.exec(&quot;sdsfuser1dfsfuser2&quot;);</div><div class="line">var lastIndex2=regx.lastIndex;</div><div class="line">rs=regx.exec(&quot;sdsfuser1dfsfuser2&quot;);</div><div class="line">var lastIndex3=regx.lastIndex;</div></pre></td></tr></table></figure></p>
+<p>上面lastIndex1为9，第二个lastIndex2也为9，第三个也是9；如果regx=/user/d/g，则第一个为9，第二个为18，第三个为0。</p>
+<p>（2）source，返回表达式字符串自身。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var regx=/user\d/;</div><div class="line">var rs=regx.exec(&quot;sdsfuser1dfsfuser2&quot;);</div><div class="line">var source=regx.source;</div></pre></td></tr></table></figure></p>
+<p>source的值为user\d<br>3、和匹配结果相关的三个属性：</p>
+<p>（1）index，返回当前匹配的位置。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var regx=/user\d/;</div><div class="line">var rs=regx.exec(&quot;sdsfuser1dfsfuser2&quot;);</div><div class="line">var index1=rs.index;</div><div class="line">rs=regx.exec(&quot;sdsfuser1dfsfuser2&quot;);</div><div class="line">var index2=rs.index; </div><div class="line">rs=regx.exec(&quot;sdsfuser1dfsfuser2&quot;);</div><div class="line">var index3=rs.index;</div></pre></td></tr></table></figure></p>
+<p>index1为4，index2为4，index3为4，如果表达式加入参数g，则index1为4，index2为13，index3会报错（index为空或不是对象）。</p>
+<p>（2）input，用于匹配的字符串。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var regx=/user\d/;</div><div class="line">var rs=regx.exec(&quot;sdsfuser1dfsfuser2&quot;);</div><div class="line">var input=rs.input;</div></pre></td></tr></table></figure></p>
+<p>input的值为sdsfuser1dfsfuser2。</p>
+<p>（3）[0]，返回匹配结果中的第一个匹配值，对于match而言可能返回一个多值的数字，则除了[0]外，还可以取[1]、[2]等等。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var regx=/user\d/;</div><div class="line">var rs=regx.exec(&quot;sdsfuser1dfsfuser2&quot;);</div><div class="line">var value1=rs[0];</div><div class="line">rs=regx.exec(&quot;sdsfuser1dfsfuser2&quot;);</div><div class="line">var value2=rs[0];</div></pre></td></tr></table></figure></p>
+<p>value1的值为user1,value2的值为user2</p>
+<h1 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h1><p>1、实际应用一<br>描述：有一表单，其中有一个“用户名”input域<br>要求：汉字，而且不能少于2个汉字，不能多于4个汉字。<br>实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">function checkForm(obj)&#123;</div><div class="line">     var username=obj.username.value;</div><div class="line">     var regx=/^[\u4e00-\u9fa5]&#123;2,4&#125;$/g;</div><div class="line">     if(!regx.test(username))&#123;</div><div class="line">               alert(&quot;Invalid username!&quot;);</div><div class="line">               return false; </div><div class="line">     &#125;</div><div class="line">     return true;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;form name=&quot;myForm&quot; onSubmit=&quot;return checkForm(this)&quot;&gt;</div><div class="line">    &lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;</div><div class="line">    &lt;input type=&quot;submit&quot; vlaue=&quot;submit&quot;/&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure></p>
+<p>2、实际应用二<br>描述：给定一个含有html标记的字符串，要求将其中的html标记去掉。<br>实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">function toPlainText(htmlStr)&#123;</div><div class="line">   var regx=/&lt;[^&gt;]*&gt;|&lt;\/[^&gt;]*&gt;/gm;</div><div class="line">   var str=htmlStr.replace(regx,&quot;&quot;);</div><div class="line">   return str;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;form name=&quot;myForm&quot;&gt;</div><div class="line">    &lt;textarea id=&quot;htmlInput&quot;&gt;&lt;/textarea&gt;</div><div class="line">    &lt;input type=&quot;button&quot; value=&quot;submit&quot; onclick=&quot;toPlainText(document.getElementById(&apos;htmlInput&apos;).value&quot;/&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p>js正则表达式语法<br><a href="http://blog.csdn.net/zaifendou/article/details/5746988" target="_blank" rel="external">http://blog.csdn.net/zaifendou/article/details/5746988</a></p>
+<p>正则表达式30分钟入门教程<br><a href="http://demo.voidking.com/reprint/正则表达式/正则表达式30分钟入门教程.htm" target="_blank" rel="external">http://demo.voidking.com/reprint/正则表达式/正则表达式30分钟入门教程.htm</a></p>
+<p>常用的正则表达式<br><a href="http://demo.voidking.com/reprint/正则表达式/常用的正则表达式.htm" target="_blank" rel="external">http://demo.voidking.com/reprint/正则表达式/常用的正则表达式.htm</a></p>
+<p>正则表达式速查表<br><a href="http://demo.voidking.com/reprint/正则表达式/正则表达式速查表.htm" target="_blank" rel="external">http://demo.voidking.com/reprint/正则表达式/正则表达式速查表.htm</a></p>
+<p>正则表达式测试器<br><a href="http://demo.voidking.com/reprint/正则表达式/正则表达式测试器.htm" target="_blank" rel="external">http://demo.voidking.com/reprint/正则表达式/正则表达式测试器.htm</a></p>
+<p>正则表达式在线测试器<br>详情请见：<a href="http://demo.voidking.com/reprint/regexpal/" target="_blank" rel="external">http://demo.voidking.com/reprint/regexpal/</a></p>
+<p>deerchao大侠正则表达式原文地址<br><a href="http://www.jb51.net/tools/zhengze.html" target="_blank" rel="external">http://www.jb51.net/tools/zhengze.html</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/正则表达式/" rel="tag"># 正则表达式</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/15/JavaScript之函数柯里化/" rel="next" title="JavaScript之函数科里化">
+                <i class="fa fa-chevron-left"></i> JavaScript之函数科里化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/26/利用box-shadow制作loading图/" rel="prev" title="利用box-shadow制作loading图">
+                利用box-shadow制作loading图 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="柳玉美" />
+          <p class="site-author-name" itemprop="name">柳玉美</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定义正则表达式"><span class="nav-number">2.</span> <span class="nav-text">定义正则表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表达式模式"><span class="nav-number">3.</span> <span class="nav-text">表达式模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表达式操作"><span class="nav-number">4.</span> <span class="nav-text">表达式操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表达式相关属性"><span class="nav-number">5.</span> <span class="nav-text">表达式相关属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实际应用"><span class="nav-number">6.</span> <span class="nav-text">实际应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文档"><span class="nav-number">7.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柳玉美</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

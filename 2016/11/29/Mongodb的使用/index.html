@@ -1,0 +1,731 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content=".jpg)
+一个基于分布式文件储存的开源数据库
+设置一个数据库的启动路径
+12345mongod --dbpath=D:\mangodata//mongod  为启动服务的可执行命令//-path   指定数据存放目录//此目录一定要提前创建好//如果显示waiting for connections on port 27017即为成功
+
+MAC用户">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mongodb的使用">
+<meta property="og:url" content="http://yoursite.com/2016/11/29/Mongodb的使用/index.html">
+<meta property="og:site_name" content="web技术博客">
+<meta property="og:description" content=".jpg)
+一个基于分布式文件储存的开源数据库
+设置一个数据库的启动路径
+12345mongod --dbpath=D:\mangodata//mongod  为启动服务的可执行命令//-path   指定数据存放目录//此目录一定要提前创建好//如果显示waiting for connections on port 27017即为成功
+
+MAC用户">
+<meta property="og:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(44">
+<meta property="og:updated_time" content="2017-03-28T07:57:32.990Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mongodb的使用">
+<meta name="twitter:description" content=".jpg)
+一个基于分布式文件储存的开源数据库
+设置一个数据库的启动路径
+12345mongod --dbpath=D:\mangodata//mongod  为启动服务的可执行命令//-path   指定数据存放目录//此目录一定要提前创建好//如果显示waiting for connections on port 27017即为成功
+
+MAC用户">
+<meta name="twitter:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(44">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/29/Mongodb的使用/"/>
+
+
+
+
+
+  <title> Mongodb的使用 | web技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">web技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/29/Mongodb的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="柳玉美">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="web技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Mongodb的使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-29T22:03:55+08:00">
+                2016-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://github.com/yutaiwei/blog/blob/master/photo/1%20(44" alt="">.jpg)</p>
+<h4 id="一个基于分布式文件储存的开源数据库"><a href="#一个基于分布式文件储存的开源数据库" class="headerlink" title="一个基于分布式文件储存的开源数据库"></a>一个基于分布式文件储存的开源数据库</h4><ul>
+<li><p>设置一个数据库的启动路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mongod --dbpath=D:\mangodata</div><div class="line">//mongod  为启动服务的可执行命令</div><div class="line">//-path   指定数据存放目录</div><div class="line">//此目录一定要提前创建好</div><div class="line">//如果显示waiting for connections on port 27017即为成功</div></pre></td></tr></table></figure>
+</li>
+<li><p>MAC用户</p>
+<a id="more"></a>
+<blockquote>
+<p><a href="http://www.zhufengpeixun.cn/doc/html/node%E5%91%A8%E6%9C%AB%E5%A4%A7%E7%BA%B2/5.mongodb.html" target="_blank" rel="external">http://www.zhufengpeixun.cn/doc/html/node%E5%91%A8%E6%9C%AB%E5%A4%A7%E7%BA%B2/5.mongodb.html</a></p>
+</blockquote>
+</li>
+<li><p>客户端命令</p>
+<ul>
+<li><p>切换数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">use zfpx2017</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看当前数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db</div></pre></td></tr></table></figure>
+</li>
+<li><p>插入文档</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.stu.insert(&#123;name:&apos;zfpx&apos;&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>查找</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.stu.find()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>主键</p>
+<blockquote>
+<p>一个文档中，最主要的键，是全局唯一的，永远不会变的—身份证号</p>
+</blockquote>
+</li>
+<li><p>node下使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">let mongoose = require(&apos;mongoose&apos;);</div><div class="line">mongoose.Promise=Promise;</div><div class="line">//连接数据库  mongodb://ip:端口号/数据库名字</div><div class="line">mongoose.connect(&apos;mongodb://127.0.0.1/201612node&apos;);</div><div class="line">//定义数据库的模型骨架 不能直接操作数据库</div><div class="line">let PersonSchema = new mongoose.Schema(&#123;</div><div class="line">    name:String,</div><div class="line">    age:Number</div><div class="line">&#125;);</div><div class="line">//定义一个模型  Person-&gt;person-&gt;转复数形式 值就是集合的名称的来源</div><div class="line">let Person = mongoose.model(&apos;Person&apos;,PersonSchema);</div></pre></td></tr></table></figure>
+</li>
+<li><p>node下增加一条数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Person.create(&#123;name:&apos;zfpx&apos;,age:8&#125;,function(err,result)&#123;</div><div class="line">    console.log(result);</div><div class="line">&#125;);</div><div class="line">Person.create(&#123;name:&apos;zfpx&apos;,age:8&#125;).then(function(result)&#123;</div><div class="line">    console.log(result);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>node下查找一条数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * find 查询所有符合条件的文档 [] undefined</div><div class="line"> * findOne 查询最多一条符合条件的文档  对象  undefined</div><div class="line"> */</div><div class="line">Person.findOne(&#123;_id: &apos;5882d3272198e02a605a6e2f&apos;&#125;,function(err,result)&#123;</div><div class="line">   console.log(result);</div><div class="line">&#125;);</div><div class="line">//find方法也可以添加参数，限制查询的条件</div><div class="line">//控制返回的字段数量  name</div><div class="line">// 1 表示包含 ，只显示此字段，其他字段都不要</div><div class="line">// 0 表示排除  排除此字段，其他的都要</div><div class="line"></div><div class="line">Person.find(&#123;&#125;,&#123;name:0,age:0&#125;,function(err,docs)&#123;</div><div class="line">    console.log(err);</div><div class="line">    console.log(docs);</div><div class="line">&#125;);</div><div class="line">//也可以直接根据ID查询</div><div class="line">//根据ID查询对象</div><div class="line">Person.findById(&apos;5882e22c4c2d3b2d88067ed5&apos;,function(err,doc)&#123;</div><div class="line">    console.log(doc);</div><div class="line">&#125;);</div><div class="line">//查询分页</div><div class="line">/**</div><div class="line"> * 1.每页3条</div><div class="line"> * 2.查询第二页的数据</div><div class="line"> * 3.根据年龄倒序排列</div><div class="line"> */</div><div class="line">let pageSize = 3;</div><div class="line">let pageNum = 3;</div><div class="line">//排序 -1 倒序  1 表示升序</div><div class="line">//对服务器的数据请求是在exec的发出 的</div><div class="line">Person.find(&#123;&#125;).skip(pageSize*(pageNum-1)).limit(pageSize).sort(&#123;age:-1&#125;).exec(function(err,result)&#123;</div><div class="line">    console.log(result);// 2 3 4 4 3 2</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>node下修改一条数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//&#123; ok: 1, nModified: 1, n: 1 &#125;</div><div class="line">// n匹配的条数  nModified实际更新的条数</div><div class="line">// 更新的时候，最多只会更新一条</div><div class="line">// multi  匹配多少条 更新多少条 3 4  默认是false</div><div class="line">Person.update(&#123;name:/g/&#125;,&#123;age:100&#125;,&#123;multi:true&#125;,function(err,result)&#123;</div><div class="line">    console.log(result);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>node下删除一条数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">   Person.remove(&#123;&#125;,function(err,result)&#123;</div><div class="line">    console.log(result.result);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/25/Node基础开发框架/" rel="next" title="Node基础开发框架">
+                <i class="fa fa-chevron-left"></i> Node基础开发框架
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/05/Express入门/" rel="prev" title="Express入门">
+                Express入门 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="柳玉美" />
+          <p class="site-author-name" itemprop="name">柳玉美</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一个基于分布式文件储存的开源数据库"><span class="nav-number">1.</span> <span class="nav-text">一个基于分布式文件储存的开源数据库</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柳玉美</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

@@ -1,0 +1,753 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content=".jpg)
+Express是node的后台快速开发框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Express入门">
+<meta property="og:url" content="http://yoursite.com/2016/12/05/Express入门/index.html">
+<meta property="og:site_name" content="web技术博客">
+<meta property="og:description" content=".jpg)
+Express是node的后台快速开发框架">
+<meta property="og:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(45">
+<meta property="og:updated_time" content="2017-03-28T07:58:13.302Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Express入门">
+<meta name="twitter:description" content=".jpg)
+Express是node的后台快速开发框架">
+<meta name="twitter:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(45">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/05/Express入门/"/>
+
+
+
+
+
+  <title> Express入门 | web技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">web技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/05/Express入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="柳玉美">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="web技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Express入门
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-05T22:09:59+08:00">
+                2016-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://github.com/yutaiwei/blog/blob/master/photo/1%20(45" alt="">.jpg)</p>
+<h3 id="Express是node的后台快速开发框架"><a href="#Express是node的后台快速开发框架" class="headerlink" title="Express是node的后台快速开发框架"></a>Express是node的后台快速开发框架</h3><a id="more"></a>
+<p>创建http服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">let http = require(&apos;http&apos;);</div><div class="line">let fs = require(&apos;fs&apos;);</div><div class="line">let url = require(&apos;url&apos;);</div><div class="line">http.createServer(function (req,res) &#123;</div><div class="line">    var urlObj =  url.parse(req.url,true);</div><div class="line">    var pathname = urlObj.pathname;</div><div class="line">    if (pathname == &apos;/&apos;)&#123;</div><div class="line">      res.end(&apos;首页&apos;)</div><div class="line">    &#125;</div><div class="line">    else if(pathname == &apos;/user&apos;)&#123;</div><div class="line">        res.end(&apos;用户&apos;)</div><div class="line">    &#125;</div><div class="line">    else &#123;</div><div class="line">        res.statusCode = 404;</div><div class="line">        res.end(&apos;Not Found&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;).listen(3000,function () &#123;</div><div class="line">    console.log(&apos;3000端口成功监听&apos;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>也可以写成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let express = require(&apos;express&apos;);</div><div class="line">let app = express();</div><div class="line">app.listen(8080,function()&#123;</div><div class="line">    console.log(&apos;8080端口已经成功启动，服务器监听正常&apos;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>express 是一个node模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- npm install express</div><div class="line">//安装express方法</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意文件夹名字不能与module模块名字相同</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">let express = require(&apos;express&apos;);</div><div class="line">let app = express();</div><div class="line">app.get(&apos;/&apos;,function (req,res) &#123;</div><div class="line">    res.end(&apos;首页&apos;);</div><div class="line">&#125;);</div><div class="line">app.get(&apos;user&apos;,function (req,res) &#123;</div><div class="line">    res.end(&apos;用户&apos;);</div><div class="line">&#125;);</div><div class="line">app.get(&apos;*&apos;,function (req,res) &#123;</div><div class="line">    res.end(&apos;页面未找到&apos;);</div><div class="line">    //*代表所有路径</div><div class="line">&#125;);</div><div class="line">//get方法对应http的方法名 /对应于根路径</div><div class="line"></div><div class="line">express.listen(9090,function () &#123;</div><div class="line">    console.log(&apos;9090监听成功&apos;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>中间件<ul>
+<li>中间件的含义： 是一个函数,可以设置一些公共的逻辑，对所有的路由生效，next也是一个函数，调用它表示继续向下执行</li>
+<li>中间件的作用：<br>进行权限判断，添加一些公共的方法</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.use(function (req,res，next) &#123;</div><div class="line"> res.setHeader(&apos;Content-Type&apos;,&apos;text/html,charset:utf-8&apos;);</div><div class="line"> next();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>路由中间件<blockquote>
+<p>是一个中间件，但是里面包含了路由规则，把路由进行分类，把不同的路由写在不同的模块里<br>例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">let express = require(&apos;express&apos;);</div><div class="line">let app = express();</div><div class="line">let user = require(&apos;./routes/user&apos;);</div><div class="line">let article = require(&apos;./routes/article&apos;);</div><div class="line">app.use(&apos;/user&apos;,user);</div><div class="line">app.use(&apos;/article&apos;,article);</div><div class="line">app.listen(9090);</div><div class="line">// 有请求到来的时候，先匹配路径前缀 如果匹配才交由后面的路由中间件来处理</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<p>==使用cmd命令模拟发送post请求==<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -v http://www.baidu.com</div></pre></td></tr></table></figure></p>
+<h4 id="node实现页面跳转-重定向"><a href="#node实现页面跳转-重定向" class="headerlink" title="node实现页面跳转(重定向)"></a>node实现页面跳转(重定向)</h4><ul>
+<li><p>返回到来时的页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">res.redirect(&apos;back&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>跳到指定的页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.post(&apos;/signup&apos;,function(req,res)&#123;</div><div class="line">   res.redirect(&apos;/signin&apos;);</div><div class="line">   //参数是一个URL地址，不是文件路径</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="express-中经常用到的模块汇总"><a href="#express-中经常用到的模块汇总" class="headerlink" title="express 中经常用到的模块汇总"></a>express 中经常用到的模块汇总</h3><h4 id="请求体解析模块——body-parser"><a href="#请求体解析模块——body-parser" class="headerlink" title="请求体解析模块——body-parser"></a>请求体解析模块——body-parser</h4><blockquote>
+<p>可以将前台get方法传过来的路径内容，或者post方法传过来的参数直接解析</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">npm install body-parser --save</div><div class="line"></div><div class="line">let bodyParser = require(&apos;body-parser&apos;);</div><div class="line">app.use(bodyParser.urlencoded(&#123;extended:true&#125;));</div><div class="line">//extended:true 当extended为false的时候，键值对中的值就为&apos;String&apos;或&apos;Array&apos;形式，为true的时候，则可为任何数据类型。</div><div class="line"></div><div class="line">//请求体解析还有这种写法</div><div class="line">app.use(bodyParser.json());</div><div class="line"></div><div class="line">//urlencoded解析body中的urlencoded字符， 只支持utf-8的编码的字符,也支持自动的解析gzip和 zlib，</div><div class="line">.json这个方法返回一个仅仅用来解析json格式的中间件，能接受任何body中任何Unicode编码的字符。</div></pre></td></tr></table></figure>
+<p>==一般请求中有json发送的时候就需要调用bodyParser.json的方法==<br>以上内容写完之后，可以直接在如果是get方法传进来的参数可以用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">res.qurey.xxx中获取到</div></pre></td></tr></table></figure></p>
+<p>如果是post方法传进来的参数可以用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">res.body.xxx中获取到</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">可以获取的请求内容</div><div class="line">console.log(req.method);</div><div class="line">  console.log(req.url);</div><div class="line">  console.log(req.path);// req.path = pathname</div><div class="line">  console.log(req.query);</div><div class="line">  console.log(req.headers);</div><div class="line">  console.log(req.body);</div></pre></td></tr></table></figure>
+<p>==node还可以通过自带的req.params来获取请求url中的参数值==</p>
+<h3 id="路径解析模块——path"><a href="#路径解析模块——path" class="headerlink" title="路径解析模块——path"></a>路径解析模块——path</h3><blockquote>
+<p>处理有关文件路径的内容</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let path = require(&apos;path&apos;);</div></pre></td></tr></table></figure>
+<ul>
+<li><p>绝对路径：==path.resolve==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">path.resolve(&apos;foo/bar&apos;, &apos;/tmp/file/&apos;, &apos;..&apos;, &apos;a/../subfile&apos;);</div><div class="line">// 返回 /tmp/subfile</div><div class="line">// 此方法的参数类似于命令行中的cd命令</div><div class="line">eg:</div><div class="line">cd foo/bar</div><div class="line">cd /tmp/file/</div><div class="line">cd ..</div><div class="line">cd a/../subfile</div><div class="line">// cd ..返回上一层</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用适合当前系统的链接符号，连接多个路径：==path-join==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">console.log(path.join(__dirname,&apos;path.js&apos;));</div><div class="line">//参数只能是字符串</div><div class="line">eg：</div><div class="line">var str = path.join(&apos;./path/./&apos;, &apos;./upload&apos;, &apos;/file&apos;, &apos;123.jpg&apos;);</div><div class="line">console.log(str); // path/upload/file/123.jpg</div></pre></td></tr></table></figure>
+</li>
+<li><p>路径整理：==path.normalize==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str = path.normalize(&apos;./path//upload/data/../file/./123.jpg&apos;);</div><div class="line">console.log(str); // path/upload/file/123.jpg</div><div class="line">//将杂乱的路径例如： path//upload/../file/./123.jpg整理为 path/upload/file/123.jpg正常路径</div></pre></td></tr></table></figure>
+</li>
+<li><p>解析路径：==path.parse==</p>
+<blockquote>
+<p>把一个路径解析为一个 {root:’’, dir:’’, base:’’, ext:’’, name:’’} 这样的对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">path.parse(&apos;/home/user/dir/file.txt&apos;)</div><div class="line">// returns</div><div class="line">&#123;</div><div class="line">    root : &quot;/&quot;,</div><div class="line">    dir : &quot;/home/user/dir&quot;,</div><div class="line">    base : &quot;file.txt&quot;,</div><div class="line">    ext : &quot;.txt&quot;,</div><div class="line">    name : &quot;file&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<p>更多path模块的使用方法参见：<br><a href="http://www.cnblogs.com/52cik/p/learn-node-path.html" target="_blank" rel="external">http://www.cnblogs.com/52cik/p/learn-node-path.html</a></p>
+<blockquote>
+<p>在node环境中每个模块下，都可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">__dirname</div><div class="line">// 获取当前文件所在的目录的绝对路径</div><div class="line">__filename</div><div class="line">//当前文件所在的绝对路径</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="express路由：Router"><a href="#express路由：Router" class="headerlink" title="express路由：Router"></a>express路由：Router</h4><blockquote>
+<p>可以通过router配置路由</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">let router = express.Router();</div><div class="line">eg:</div><div class="line">let express = require(&apos;express&apos;);</div><div class="line">//router也是一个容器，此容器下面可以配置路由</div><div class="line">let router = express.Router();</div><div class="line">router.get(&apos;/signup&apos;,function(req,res)&#123;</div><div class="line">    res.end(&apos;注册&apos;);</div><div class="line">&#125;);</div><div class="line">router.get(&apos;/signin&apos;,function(req,res)&#123;</div><div class="line">    res.end(&apos;登录&apos;);</div><div class="line">&#125;);</div><div class="line">router.get(&apos;/signout&apos;,function(req,res)&#123;</div><div class="line">    res.end(&apos;退出&apos;);</div><div class="line">&#125;);</div><div class="line">module.exports = router;</div></pre></td></tr></table></figure>
+<h4 id="express控制cooike：cookie-parser"><a href="#express控制cooike：cookie-parser" class="headerlink" title="express控制cooike：cookie-parser"></a>express控制cooike：cookie-parser</h4><p>cookie可以应用在很多场景，例如保存未登录账户的用户的购物车信息<br>引入cookie-parser<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let cookiePaser = require(&apos;cookie-parser&apos;);</div></pre></td></tr></table></figure></p>
+<p>使用cookie-parser需要传入一个秘钥<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app.use(cookieParser(&apos;mima&apos;));</div></pre></td></tr></table></figure></p>
+<p>向客户端写cooike<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">res.cookie(&apos;name&apos;,&apos;zfpx&apos;)</div></pre></td></tr></table></figure></p>
+<p>读取客户端的cooike<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">req.cookies</div></pre></td></tr></table></figure></p>
+<p>通过domain来设置向哪个域名发送此次写入的cookie<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">res.cookie(&apos;path-name&apos;,&apos;zfpx&apos;,&#123;domain:&apos;a.zfpx.cn&apos;&#125;);</div></pre></td></tr></table></figure></p>
+<p>path路径是指向哪个路径发请求的时候会发送此cookie<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">res.cookie(&apos;path-name&apos;,&apos;zfpx&apos;,&#123;path:&apos;/read1&apos;&#125;);</div></pre></td></tr></table></figure></p>
+<p>获取服务器时间<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">expires的参数是一个绝对的时间 2017年1月15日12:33:29</div><div class="line">res.cookie(&apos;expire-name&apos;,&apos;zfpx&apos;,&#123;expires:new Date(Date.now()+10*1000)&#125;);</div></pre></td></tr></table></figure></p>
+<p>设置cooike的生命周期<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">开始倒计时，到10秒后销毁此cookie</div><div class="line">res.cookie(&apos;maxAge-name&apos;,&apos;zfpx&apos;,&#123;maxAge:10*1000&#125;);</div></pre></td></tr></table></figure></p>
+<p>eg：利用express实现一个访问量统计<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">let express = require(&apos;express&apos;);</div><div class="line">let cookieParser = require(&apos;cookie-parser&apos;);</div><div class="line">let app = express();</div><div class="line">app.use(cookieParser());</div><div class="line">app.get(&apos;/visit&apos;,function(req,res)&#123;</div><div class="line">    var visit = isNaN(req.cookies.visit)?1:parseInt(req.cookies.visit)+1;</div><div class="line">    res.cookie(&apos;visit&apos;,visit);</div><div class="line">    res.send(`欢迎您第$&#123;visit&#125;次访问`);</div><div class="line">&#125;);</div><div class="line">app.listen(3333);</div></pre></td></tr></table></figure></p>
+<h4 id="express的静态资源节点-static"><a href="#express的静态资源节点-static" class="headerlink" title="express的静态资源节点 static"></a>express的静态资源节点 static</h4><p>通过设置中间件的方式，将客户端发送来的静态资源请求找到设置的对应的文件路径，并将该路径下找到的同名文件返回给客户端。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">eg:</div><div class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</div><div class="line">//解析public文件夹在服务器上的绝对路径，并将客户端发送的所有静态文件请求都从public上查找，并将找到的同名文件返回给客户端</div><div class="line">eg2:</div><div class="line">var resolve =file=&gt;path.resolve(__dirname, file);</div><div class="line">app.use(&apos;/dist&apos;,express.static(resolve(&apos;./dist&apos;)));</div><div class="line">//客户端访问时，带有/dist的路径的进行解析，并将/dist路径下的同名文件进行返回。</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/29/Mongodb的使用/" rel="next" title="Mongodb的使用">
+                <i class="fa fa-chevron-left"></i> Mongodb的使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/09/讲故事写小说/" rel="prev" title="讲故事写小说">
+                讲故事写小说 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="柳玉美" />
+          <p class="site-author-name" itemprop="name">柳玉美</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Express是node的后台快速开发框架"><span class="nav-number">1.</span> <span class="nav-text">Express是node的后台快速开发框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#node实现页面跳转-重定向"><span class="nav-number">1.1.</span> <span class="nav-text">node实现页面跳转(重定向)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#express-中经常用到的模块汇总"><span class="nav-number">2.</span> <span class="nav-text">express 中经常用到的模块汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#请求体解析模块——body-parser"><span class="nav-number">2.1.</span> <span class="nav-text">请求体解析模块——body-parser</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路径解析模块——path"><span class="nav-number">3.</span> <span class="nav-text">路径解析模块——path</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#express路由：Router"><span class="nav-number">3.1.</span> <span class="nav-text">express路由：Router</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#express控制cooike：cookie-parser"><span class="nav-number">3.2.</span> <span class="nav-text">express控制cooike：cookie-parser</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#express的静态资源节点-static"><span class="nav-number">3.3.</span> <span class="nav-text">express的静态资源节点 static</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柳玉美</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

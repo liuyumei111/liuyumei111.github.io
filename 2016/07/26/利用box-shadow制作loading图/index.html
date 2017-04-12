@@ -1,0 +1,722 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css3,loading," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content=".jpg)
+我们见过很多利用css3做的loading图，像下面这种应该是很常见的。通常制作这种loading，我们会一个标签对应一个圆，八个圆就要八个标签。但是这种做法很浪费资源。我们可以只用一个标签，然后利用box—shadow来制作一个loading图。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用box-shadow制作loading图">
+<meta property="og:url" content="http://yoursite.com/2016/07/26/利用box-shadow制作loading图/index.html">
+<meta property="og:site_name" content="web技术博客">
+<meta property="og:description" content=".jpg)
+我们见过很多利用css3做的loading图，像下面这种应该是很常见的。通常制作这种loading，我们会一个标签对应一个圆，八个圆就要八个标签。但是这种做法很浪费资源。我们可以只用一个标签，然后利用box—shadow来制作一个loading图。">
+<meta property="og:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(19">
+<meta property="og:updated_time" content="2017-03-28T07:16:19.263Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用box-shadow制作loading图">
+<meta name="twitter:description" content=".jpg)
+我们见过很多利用css3做的loading图，像下面这种应该是很常见的。通常制作这种loading，我们会一个标签对应一个圆，八个圆就要八个标签。但是这种做法很浪费资源。我们可以只用一个标签，然后利用box—shadow来制作一个loading图。">
+<meta name="twitter:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(19">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/26/利用box-shadow制作loading图/"/>
+
+
+
+
+
+  <title> 利用box-shadow制作loading图 | web技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">web技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/26/利用box-shadow制作loading图/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="柳玉美">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="web技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                利用box-shadow制作loading图
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-26T08:00:00+08:00">
+                2016-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS3/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS3</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://github.com/yutaiwei/blog/blob/master/photo/1%20(19" alt="">.jpg)</p>
+<p>我们见过很多利用css3做的loading图，像下面这种应该是很常见的。通常制作这种loading，我们会一个标签对应一个圆，八个圆就要八个标签。但是这种做法很浪费资源。我们可以只用一个标签，然后利用<code>box—shadow</code>来制作一个loading图。<br><a id="more"></a></p>
+<p><style type="text/css"><br>.loading {<br>  font-size: 30px;<br>  width: 1em;<br>  height: 1em;<br>  border-radius: 50%;<br>  margin: 100px auto;<br>  box-shadow: 0 -2em rgba(255, 0, 0, 1), 1.414em -1.414em rgba(255, 0, 0, 0.875), 2em 0 rgba(255, 0, 0, 0.75), 1.414em 1.414em rgba(255, 0, 0, 0.625), 0 2em rgba(255, 0, 0, 0.5), -1.414em 1.414em rgba(255, 0, 0, 0.375), -2em 0 rgba(255, 0, 0, 0.25), -1.414em -1.414em rgba(255, 0, 0, 0.125);<br>   animation: rotate 1s infinite forwards steps(8, end);<br>}</p>
+<p>@keyframes rotate {<br>   100% {<br>   -moz-transform: rotate(360deg);<br>   }<br>}<br></style></p>
+<div class="loading"></div>
+
+<p>首先，需要一个标签：</p>
+<pre><code>&lt;div class=&quot;loading&quot;&gt;&lt;/div&gt;
+</code></pre><p>然后是css：</p>
+<pre><code>$fontSize: 30px;
+$radius: 2em;
+.loading {
+  font-size: $fontSize;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin: 100px auto;
+  box-shadow: 0 -2em rgba(255, 0, 0, 1), 1.414em -1.414em rgba(255, 0, 0, 0.875), 2em 0 rgba(255, 0, 0, 0.75), 1.414em 1.414em rgba(255, 0, 0, 0.625), 0 2em rgba(255, 0, 0, 0.5), -1.414em 1.414em rgba(255, 0, 0, 0.375), -2em 0 rgba(255, 0, 0, 0.25), -1.414em -1.414em rgba(255, 0, 0, 0.125);
+}
+</code></pre><p>单位用的是<code>em</code>，这样如果要修改圆的大小，就只需要修改<code>font-size</code>就可以了，如果用<code>px</code>的话，一旦需要修改大小，那么涉及单位的就都要修改了。</p>
+<p>关键css就是：</p>
+<pre><code>box-shadow: 0 -2em rgba(255, 0, 0, 1), 1.414em -1.414em rgba(255, 0, 0, 0.875), 2em 0 rgba(255, 0, 0, 0.75), 1.414em 1.414em rgba(255, 0, 0, 0.625), 0 2em rgba(255, 0, 0, 0.5), -1.414em 1.414em rgba(255, 0, 0, 0.375), -2em 0 rgba(255, 0, 0, 0.25), -1.414em -1.414em rgba(255, 0, 0, 0.125);
+</code></pre><p>需要用到多重阴影，每一个阴影就是一个圆了。设置它们的坐标需要用到三角函数。先要设定一个半径(如2em)，然后360度平均分成8份，每份是45度，利用三角函数就可以计算阴影的偏移位置了。还有就是圆的颜色渐变，就是设置它们的不同透明度。</p>
+<p>上面做出来的是静态的，还需要让它动起来：</p>
+<pre><code>$fontSize: 30px;
+$radius: 2em;
+
+.loading {
+  font-size: $fontSize;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin: 100px auto;
+  box-shadow: 0 -2em rgba(255, 0, 0, 1), 1.414em -1.414em rgba(255, 0, 0, 0.875), 2em 0 rgba(255, 0, 0, 0.75), 1.414em 1.414em rgba(255, 0, 0, 0.625), 0 2em rgba(255, 0, 0, 0.5), -1.414em 1.414em rgba(255, 0, 0, 0.375), -2em 0 rgba(255, 0, 0, 0.25), -1.414em -1.414em rgba(255, 0, 0, 0.125);
+
+  animation: rotate 1s infinite forwards steps(8, end);
+}
+
+@keyframes rotate {
+   100% {
+       transform: rotate(360deg);
+   }
+}
+</code></pre><p><code>steps()</code>这个函数可以让动画分步进行，而不是连贯性的。</p>
+<p>好了，上面就是全部的代码了，很少。上面的<code>box-shadow</code>其实我是手算的，本来我想利用sass的<code>for</code>循环计算的，结果没有成功。希望高手能指点一下。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css3/" rel="tag"># css3</a>
+          
+            <a href="/tags/loading/" rel="tag"># loading</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/15/JavaScript正则表达式/" rel="next" title="JavaScript正则表达式">
+                <i class="fa fa-chevron-left"></i> JavaScript正则表达式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/26/css3-transform属性多个值的顺序问题/" rel="prev" title="css3 transform属性多个值的顺序问题">
+                css3 transform属性多个值的顺序问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="柳玉美" />
+          <p class="site-author-name" itemprop="name">柳玉美</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柳玉美</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
