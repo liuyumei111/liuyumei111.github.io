@@ -87,21 +87,18 @@
 
 
 
-<meta name="description" content=".jpg)
-显示欢迎信息Ajax的优点我们已经说过了，上个例子先！">
+<meta name="description" content="显示欢迎信息Ajax的优点我们已经说过了，上个例子先！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery学习笔记——Ajax篇">
 <meta property="og:url" content="http://yoursite.com/2016/10/15/jQuery学习笔记——Ajax篇/index.html">
 <meta property="og:site_name" content="web技术博客">
-<meta property="og:description" content=".jpg)
-显示欢迎信息Ajax的优点我们已经说过了，上个例子先！">
-<meta property="og:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(36">
-<meta property="og:updated_time" content="2017-03-28T07:42:35.908Z">
+<meta property="og:description" content="显示欢迎信息Ajax的优点我们已经说过了，上个例子先！">
+<meta property="og:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/35.jpg">
+<meta property="og:updated_time" content="2017-03-28T11:43:06.883Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery学习笔记——Ajax篇">
-<meta name="twitter:description" content=".jpg)
-显示欢迎信息Ajax的优点我们已经说过了，上个例子先！">
-<meta name="twitter:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(36">
+<meta name="twitter:description" content="显示欢迎信息Ajax的优点我们已经说过了，上个例子先！">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/35.jpg">
 
 
 
@@ -348,7 +345,7 @@
       
 
       
-        <p><img src="https://github.com/yutaiwei/blog/blob/master/photo/1%20(36" alt="">.jpg)</p>
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/35.jpg" alt=""></p>
 <h3 id="显示欢迎信息"><a href="#显示欢迎信息" class="headerlink" title="显示欢迎信息"></a>显示欢迎信息</h3><p>Ajax的优点我们已经说过了，上个例子先！<br><a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">&lt;!--显示欢迎信息.html--&gt;</div><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">	&lt;title&gt;显示欢迎信息&lt;/title&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.11.1.js&quot;&gt;&lt;/script&gt;</div><div class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">		$(function()&#123;</div><div class="line">			$(&quot;#submit&quot;).click(function()&#123;</div><div class="line">				var name = $(&quot;.uname&quot;).val();</div><div class="line">				var data = &quot;uname=&quot; + name;</div><div class="line">				$.ajax(&#123;</div><div class="line">					type:&quot;POST&quot;,</div><div class="line">					url:&quot;http://demo.voidking.com/welcome.php&quot;,</div><div class="line">					data:data,</div><div class="line">					success: function(html)&#123;</div><div class="line">						$(&quot;#message&quot;).html(html);</div><div class="line">					&#125;</div><div class="line">				&#125;);</div><div class="line">				return false;</div><div class="line">			&#125;);</div><div class="line">		&#125;);</div><div class="line">	&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;form&gt;</div><div class="line">			&lt;label&gt;Enter your name&lt;/label&gt;</div><div class="line">			&lt;input type=&quot;text&quot; name=&quot;uname&quot; class=&quot;uname&quot; /&gt;&lt;br/&gt;</div><div class="line">			&lt;input type=&quot;submit&quot; id=&quot;submit&quot;/&gt;</div><div class="line">		&lt;/form&gt;</div><div class="line">		&lt;div id=&quot;message&quot;&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;!--welcome.php--&gt;</div><div class="line">&lt;?php</div><div class="line">	$name = $_POST[&apos;uname&apos;];</div><div class="line">	echo &quot;welcome &quot;.$name;</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
@@ -493,7 +490,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">60</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -502,7 +499,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

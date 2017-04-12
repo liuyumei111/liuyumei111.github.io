@@ -87,21 +87,18 @@
 
 
 
-<meta name="description" content=".jpg)
-原理假设页面上有三列图片，当我们下拉时，最短（或最长）的一列图片展示完的时候，就要请求加载新的图片，获取到的新的图片放到最短一列图片的下面。">
+<meta name="description" content="原理假设页面上有三列图片，当我们下拉时，最短（或最长）的一列图片展示完的时候，就要请求加载新的图片，获取到的新的图片放到最短一列图片的下面。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="瀑布流特效">
 <meta property="og:url" content="http://yoursite.com/2016/09/10/瀑布流特效/index.html">
 <meta property="og:site_name" content="web技术博客">
-<meta property="og:description" content=".jpg)
-原理假设页面上有三列图片，当我们下拉时，最短（或最长）的一列图片展示完的时候，就要请求加载新的图片，获取到的新的图片放到最短一列图片的下面。">
-<meta property="og:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(29">
-<meta property="og:updated_time" content="2017-03-28T07:33:53.919Z">
+<meta property="og:description" content="原理假设页面上有三列图片，当我们下拉时，最短（或最长）的一列图片展示完的时候，就要请求加载新的图片，获取到的新的图片放到最短一列图片的下面。">
+<meta property="og:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/22.jpg">
+<meta property="og:updated_time" content="2017-03-28T11:40:44.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="瀑布流特效">
-<meta name="twitter:description" content=".jpg)
-原理假设页面上有三列图片，当我们下拉时，最短（或最长）的一列图片展示完的时候，就要请求加载新的图片，获取到的新的图片放到最短一列图片的下面。">
-<meta name="twitter:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(29">
+<meta name="twitter:description" content="原理假设页面上有三列图片，当我们下拉时，最短（或最长）的一列图片展示完的时候，就要请求加载新的图片，获取到的新的图片放到最短一列图片的下面。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/22.jpg">
 
 
 
@@ -348,7 +345,7 @@
       
 
       
-        <p><img src="https://github.com/yutaiwei/blog/blob/master/photo/1%20(29" alt="">.jpg)</p>
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/22.jpg" alt=""></p>
 <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>假设页面上有三列图片，当我们下拉时，最短（或最长）的一列图片展示完的时候，就要请求加载新的图片，获取到的新的图片放到最短一列图片的下面。<br><a id="more"></a><br>尝试过用原生js或jquery实现瀑布流，源码放在本文最后。下面记录一种使用imageloaded和masonry插件实现的瀑布流，更简便。</p>
 <h1 id="imageloaded和masonry"><a href="#imageloaded和masonry" class="headerlink" title="imageloaded和masonry"></a>imageloaded和masonry</h1><p>ejs代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;meitulist&quot; class=&quot;meitulist&quot;&gt;</div><div class="line">    &lt;% data.obj.pictureList.forEach(function(picture)&#123; %&gt;</div><div class="line">        &lt;a href=&quot;/inspiration/imagedetail/&lt;%= picture.albumId%&gt;&quot; class=&quot;item&quot;&gt;</div><div class="line">            &lt;img src=&quot;&lt;%= picture.url%&gt;&quot; /&gt;</div><div class="line">        &lt;/a&gt;</div><div class="line">    &lt;% &#125;)%&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
 <p>每次加载图片并插入后，执行resetImage()函数。</p>
@@ -483,7 +480,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">60</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -492,7 +489,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
